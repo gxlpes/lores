@@ -1,4 +1,4 @@
-package com.api.lores.dentist;
+package com.api.lores.patient;
 
 import com.api.lores.embedded.Person;
 import lombok.Data;
@@ -10,20 +10,16 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="tb_dentists")
-public class DentistModel {
+@Table(name="patients")
+public class PatientModel {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "dentist_id", updatable = false, nullable = false)
+    @Column(name = "patient_id", updatable = false, nullable = false)
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
-    @Column(nullable = false, unique = true, length = 10)
-    private String croNumber;
-
     @Embedded
     private Person person;
-
 }

@@ -11,7 +11,6 @@ import java.util.UUID;
 public class DentistService {
 
     final DentistRepository dentistRepository;
-
     public DentistService(DentistRepository dentistRepository) {
         this.dentistRepository = dentistRepository;
     }
@@ -36,5 +35,11 @@ public class DentistService {
     @Transactional
     public void delete(DentistModel dentistModel) {
         dentistRepository.delete(dentistModel);
+    }
+
+    // delete all
+    @Transactional
+    public void deleteAll() {
+        dentistRepository.deleteAll();
     }
 }
