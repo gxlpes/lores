@@ -1,16 +1,18 @@
 package com.api.lores.dentist;
 
 import com.api.lores.embedded.Person;
+import com.api.lores.specialty.SpecialtyModel;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="tb_dentists")
+@Table(name="dentists")
 public class DentistModel {
 
     @Id
@@ -26,4 +28,7 @@ public class DentistModel {
     @Embedded
     private Person person;
 
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "dentist_id")
+    private List<SpecialtyModel> specialties;
 }

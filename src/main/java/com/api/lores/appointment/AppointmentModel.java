@@ -22,7 +22,7 @@ import javax.persistence.Table;
 public class AppointmentModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_appointment")
     private UUID id;
 
