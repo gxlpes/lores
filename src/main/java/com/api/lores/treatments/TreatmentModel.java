@@ -1,17 +1,21 @@
 package com.api.lores.treatments;
 
 import com.api.lores.specialty.SpecialtyModel;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Table(name = "treatments")
 public class TreatmentModel {
     @Id
@@ -21,7 +25,7 @@ public class TreatmentModel {
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
-    @Column (nullable = false, length=20)
+    @Column(nullable = false, length = 20)
     private String fieldOfSpecialty;
 
     @Column(nullable = false, length = 20)
@@ -30,11 +34,24 @@ public class TreatmentModel {
     @Column(nullable = false)
     private BigDecimal priceAppointment;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="specialty_id", referencedColumnName = "specialty_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "specialty_id", referencedColumnName = "specialty_id")
     private SpecialtyModel specialty;
 
     public void assignSpecialty(SpecialtyModel specialty) {
         this.specialty = specialty;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        TreatmentModel that = (TreatmentModel) o;
+        return id != null && Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

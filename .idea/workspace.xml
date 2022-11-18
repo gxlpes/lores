@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added treatments integrated with specialties">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Relationship with specialties">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,22 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +76,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d0cc11c88477454c45f540a7ac62c46d&quot;
   }
 }</component>
@@ -89,7 +106,9 @@
       <workItem from="1668682214590" duration="5628000" />
       <workItem from="1668722207075" duration="12686000" />
       <workItem from="1668738451515" duration="8877000" />
-      <workItem from="1668769603464" duration="3638000" />
+      <workItem from="1668769603464" duration="3754000" />
+      <workItem from="1668808345247" duration="2272000" />
+      <workItem from="1668810725895" duration="2165000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -119,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668742956490</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Relationship with specialties">
+      <created>1668773330517</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668773330517</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +167,8 @@
     <MESSAGE value="Added Appointments" />
     <MESSAGE value="Added Specialties" />
     <MESSAGE value="Added treatments integrated with specialties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added treatments integrated with specialties" />
+    <MESSAGE value="Relationship with specialties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Relationship with specialties" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

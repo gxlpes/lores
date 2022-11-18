@@ -2,21 +2,22 @@ package com.api.lores.dentist;
 
 import com.api.lores.embedded.Person;
 import com.api.lores.specialty.SpecialtyModel;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "dentists")
 public class DentistModel {
@@ -35,6 +36,20 @@ public class DentistModel {
     private Person person;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "dentist")
-    private List<SpecialtyModel> specialties;
+    @OneToMany(mappedBy = "dentist", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @ToString.Exclude
+    private Set<SpecialtyModel> specialties = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        DentistModel that = (DentistModel) o;
+        return id != null && Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
