@@ -29,6 +29,16 @@ public class AppointmentService {
         return appointmentRepository.findById(id);
     }
 
+    // find by patient id
+    public Optional<List<AppointmentModel>> findByPatientId(UUID id) {
+        return appointmentRepository.findByPatientId(id);
+    }
+
+    // find by dentist id
+    public Optional<List<AppointmentModel>> findByDentistId(UUID id) {
+        return appointmentRepository.findByDentistId(id);
+    }
+
     // find all dentists
     public List<AppointmentModel> findAll() {
         return appointmentRepository.findAll();
@@ -45,4 +55,5 @@ public class AppointmentService {
     public void deleteAll() {
         appointmentRepository.deleteAll();
     }
+
 }

@@ -56,6 +56,7 @@ public class PatientController {
 
     @DeleteMapping
     public ResponseEntity<Object> deleteAllPatients() {
+        patientService.deleteAll();
         return ResponseEntity.status(HttpStatus.OK).body("All patients were deleted successfully.");
     }
 

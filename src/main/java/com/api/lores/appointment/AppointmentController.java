@@ -41,6 +41,18 @@ public class AppointmentController {
         return ResponseEntity.status(HttpStatus.OK).body(appointmentService.findAll());
     }
 
+    @GetMapping("/patient/{id}")
+    public ResponseEntity<List<AppointmentModel>> getAppointmentByPatientId(@PathVariable(value = "id") UUID id) {
+        Optional<List<AppointmentModel>> appointmentModelOptional = appointmentService.findByPatientId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
+    }
+
+    @GetMapping("/dentist/{id}")
+    public ResponseEntity<List<AppointmentModel>> getAppointmentByDentistId(@PathVariable(value = "id") UUID id) {
+        Optional<List<AppointmentModel>> appointmentModelOptional = appointmentService.findByDentistId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteAppointment(@PathVariable(value = "id") UUID id) {
         Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
@@ -54,6 +66,7 @@ public class AppointmentController {
 
     @DeleteMapping
     public ResponseEntity<Object> deleteAllAppointments() {
+        appointmentService.deleteAll();
         return ResponseEntity.status(HttpStatus.OK).body("All appointments were deleted successfully.");
     }
 
