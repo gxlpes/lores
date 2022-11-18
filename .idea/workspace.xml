@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added Specialties">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentService.java" afterDir="false" />
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added treatments integrated with specialties">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +88,8 @@
       <workItem from="1668654279152" duration="322000" />
       <workItem from="1668682214590" duration="5628000" />
       <workItem from="1668722207075" duration="12686000" />
-      <workItem from="1668738451515" duration="4226000" />
+      <workItem from="1668738451515" duration="8877000" />
+      <workItem from="1668769603464" duration="3638000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -119,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668725411459</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added treatments integrated with specialties">
+      <created>1668742956490</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668742956490</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +140,8 @@
     <MESSAGE value="New project Lores" />
     <MESSAGE value="Added Appointments" />
     <MESSAGE value="Added Specialties" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Specialties" />
+    <MESSAGE value="Added treatments integrated with specialties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added treatments integrated with specialties" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

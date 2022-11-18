@@ -1,6 +1,7 @@
 package com.api.lores.specialty;
 
-import com.api.lores.specialty.SpecialtyModel;
+import com.api.lores.dentist.DentistModel;
+import com.api.lores.dentist.DentistService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,11 @@ import java.util.UUID;
 public class SpecialtyController {
 
     final SpecialtyService specialtyService;
+    final DentistService dentistService;
 
-    public SpecialtyController(SpecialtyService specialtyService) {
+    public SpecialtyController(SpecialtyService specialtyService, DentistService dentistService) {
         this.specialtyService = specialtyService;
+        this.dentistService = dentistService;
     }
 
     @PostMapping
@@ -41,5 +44,13 @@ public class SpecialtyController {
     @GetMapping
     public ResponseEntity<List<SpecialtyModel>> getAllSpecialties() {
         return ResponseEntity.status(HttpStatus.OK).body(specialtyService.findAll());
+    }
+
+    @PutMapping("/{specialtyId}/dentist/{dentistId}")
+    public ResponseEntity<Object> assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) {
+        SpecialtyModel specialty = specialtyService.findById(specialtyId).get();
+        DentistModel dentist = dentistService.findById(dentistId).get();
+        specialty.assignDentist(dentist);
+        return ResponseEntity.status(HttpStatus.CREATED).body(specialtyService.save(specialty));
     }
 }

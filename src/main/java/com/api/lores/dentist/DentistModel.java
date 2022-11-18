@@ -2,17 +2,23 @@ package com.api.lores.dentist;
 
 import com.api.lores.embedded.Person;
 import com.api.lores.specialty.SpecialtyModel;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="dentists")
+@Table(name = "dentists")
 public class DentistModel {
 
     @Id
@@ -28,7 +34,7 @@ public class DentistModel {
     @Embedded
     private Person person;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "dentist_id")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "dentist")
     private List<SpecialtyModel> specialties;
 }
