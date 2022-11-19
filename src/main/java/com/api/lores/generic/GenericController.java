@@ -3,8 +3,10 @@ package com.api.lores.generic;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-abstract class GenericController<T> {
+@RestController
+public abstract class GenericController<T> {
 
     public abstract GenericService<T> getService();
 
