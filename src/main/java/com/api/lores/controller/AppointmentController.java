@@ -1,5 +1,7 @@
-package com.api.lores.entities.appointment;
+package com.api.lores.controller;
 
+import com.api.lores.entity.AppointmentModel;
+import com.api.lores.services.AppointmentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

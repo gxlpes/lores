@@ -1,7 +1,9 @@
-package com.api.lores.entities.specialty;
+package com.api.lores.controller;
 
-import com.api.lores.entities.dentist.DentistModel;
-import com.api.lores.entities.dentist.DentistService;
+import com.api.lores.entity.DentistModel;
+import com.api.lores.entity.SpecialtyModel;
+import com.api.lores.services.DentistService;
+import com.api.lores.services.SpecialtyService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

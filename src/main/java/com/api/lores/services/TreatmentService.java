@@ -1,5 +1,7 @@
-package com.api.lores.entities.treatments;
+package com.api.lores.services;
 
+import com.api.lores.entity.TreatmentModel;
+import com.api.lores.repository.TreatmentRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -42,7 +44,5 @@ public class TreatmentService {
     public void deleteAll() {
         treatmentRepository.deleteAll();
     }
-
 }
-
 

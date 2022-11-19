@@ -1,5 +1,7 @@
-package com.api.lores.entities.appointment;
+package com.api.lores.services;
 
+import com.api.lores.entity.AppointmentModel;
+import com.api.lores.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

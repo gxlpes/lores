@@ -1,5 +1,7 @@
-package com.api.lores.entities.dentist;
+package com.api.lores.services;
 
+import com.api.lores.entity.DentistModel;
+import com.api.lores.repository.DentistRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
