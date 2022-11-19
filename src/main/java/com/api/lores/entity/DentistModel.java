@@ -1,6 +1,6 @@
 package com.api.lores.entity;
 
-import com.api.lores.embedded.Person;
+import com.api.lores.entity.embedded.Person;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

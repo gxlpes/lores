@@ -1,6 +1,6 @@
 package com.api.lores.entity;
 
-import com.api.lores.embedded.Person;
+import com.api.lores.entity.embedded.Person;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;

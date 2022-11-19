@@ -12,10 +12,10 @@ import javax.validation.constraints.Size;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DentistDto {
+public class SpecialtyDto {
 
     @NotBlank
-    @Size(max = 11)
-    private String croNumber;
+    @Size(max = 15)
+    private String title;
 
 }

@@ -12,10 +12,17 @@ import javax.validation.constraints.Size;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DentistDto {
+public class TreatmentDto {
 
     @NotBlank
-    @Size(max = 11)
-    private String croNumber;
+    private String fieldOfSpecialty;
+
+    @Size(max = 5)
+    @NotBlank
+    private String priceAppointment;
+
+    @Size(max = 25)
+    @NotBlank
+    private String procedureName;
 
 }

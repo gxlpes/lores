@@ -17,6 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Table(name = "treatments")
 public class TreatmentModel {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")

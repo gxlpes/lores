@@ -1,11 +1,10 @@
-package com.api.lores.embedded;
+package com.api.lores.entity.embedded;
 
 import lombok.Data;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
-import javax.validation.constraints.NotBlank;
 
 @Embeddable
 @Data

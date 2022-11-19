@@ -68,7 +68,7 @@ public class TreatmentController {
     @PutMapping("/{treatmentId}/specialty/{specialtyId}")
     public ResponseEntity<Object> assignSpecialtyToTreatment(@PathVariable UUID treatmentId, @PathVariable UUID specialtyId) {
         TreatmentModel treatment = treatmentService.findById(treatmentId).get();
-        SpecialtyModel specialty = specialtyService.findById(specialtyId).get();
+        SpecialtyModel specialty = specialtyService.findOrFail(specialtyId);
         treatment.assignSpecialty(specialty);
         return ResponseEntity.status(HttpStatus.CREATED).body(treatmentService.save(treatment));
     }

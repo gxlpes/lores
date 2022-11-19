@@ -1,17 +1,16 @@
 package com.api.lores.controller;
 
+import com.api.lores.dto.SpecialtyDto;
 import com.api.lores.entity.DentistModel;
 import com.api.lores.entity.SpecialtyModel;
 import com.api.lores.services.DentistService;
 import com.api.lores.services.SpecialtyService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @CrossOrigin
@@ -28,49 +27,51 @@ public class SpecialtyController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveSpecialty(@RequestBody @Valid SpecialtyModel specialtyRequest) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public SpecialtyModel saveSpecialty(@RequestBody @Valid SpecialtyDto specialtyDto) {
         var specialtyModel = new SpecialtyModel();
-        BeanUtils.copyProperties(specialtyRequest, specialtyModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(specialtyService.save(specialtyModel));
+        BeanUtils.copyProperties(specialtyDto, specialtyModel);
+        return specialtyService.save(specialtyModel);
     }
 
     @GetMapping
-    public ResponseEntity<List<SpecialtyModel>> getAllSpecialties() {
-        return ResponseEntity.status(HttpStatus.OK).body(specialtyService.findAll());
+    @ResponseStatus(HttpStatus.OK)
+    public List<SpecialtyModel> getAllSpecialties() {
+        return specialtyService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleSpecialty(@PathVariable(value = "id") UUID id) {
-        Optional<SpecialtyModel> specialtyModelOptional = specialtyService.findById(id);
-        if (specialtyModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(specialtyModelOptional.get());
-        }
+    public SpecialtyModel getSingleSpecialty(@PathVariable UUID id) {
+        return specialtyService.findOrFail(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAllSpecialties() {
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteAllSpecialties() {
         specialtyService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All specialties were deleted successfully.");
+        return "All specialties were deleted successfully.";
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteSpecialty(@PathVariable(value = "id") UUID id) {
-        Optional<SpecialtyModel> specialtyModelOptional = specialtyService.findById(id);
-        if (specialtyModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found.");
-        } else {
-            specialtyService.delete(specialtyModelOptional.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Specialty deleted successfully.");
-        }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteSpecialty(@PathVariable UUID id) {
+        specialtyService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public SpecialtyModel assignDentistToSpecialty(@PathVariable UUID specialtyId, @RequestBody SpecialtyModel specialty) {
+        SpecialtyModel actualSpecialty = specialtyService.findOrFail(specialtyId);
+        BeanUtils.copyProperties(specialty, actualSpecialty, "id");
+        return specialtyService.save(specialty);
     }
 
     @PutMapping("/{specialtyId}/dentist/{dentistId}")
-    public ResponseEntity<Object> assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) {
-        SpecialtyModel specialty = specialtyService.findById(specialtyId).get();
+    @ResponseStatus(HttpStatus.CREATED)
+    public SpecialtyModel assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) {
+        SpecialtyModel specialty = specialtyService.findOrFail(specialtyId);
         DentistModel dentist = dentistService.findById(dentistId).get();
         specialty.assignDentist(dentist);
-        return ResponseEntity.status(HttpStatus.CREATED).body(specialtyService.save(specialty));
+        return specialtyService.save(specialty);
     }
 }

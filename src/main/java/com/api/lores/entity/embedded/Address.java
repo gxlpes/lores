@@ -1,4 +1,4 @@
-package com.api.lores.embedded;
+package com.api.lores.entity.embedded;
 
 import lombok.Data;
 
