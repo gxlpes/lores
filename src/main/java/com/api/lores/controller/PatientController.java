@@ -4,11 +4,10 @@ import com.api.lores.entity.PatientModel;
 import com.api.lores.services.PatientService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -22,54 +21,44 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> savePatient(@RequestBody PatientModel patientRequest) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public PatientModel savePatient(@RequestBody @Valid PatientModel patient) {
         var patientModel = new PatientModel();
-        BeanUtils.copyProperties(patientRequest, patientModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(patientService.save(patientModel));
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> getSinglePatient(@PathVariable(value = "id") UUID id) {
-        Optional<PatientModel> patientModelOptional = patientService.findById(id);
-        if (patientModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(patientModelOptional.get());
-        }
+        BeanUtils.copyProperties(patient, patientModel);
+        return patientService.save(patientModel);
     }
 
     @GetMapping
-    public ResponseEntity<List<PatientModel>> getAllPatients() {
-        return ResponseEntity.status(HttpStatus.OK).body(patientService.findAll());
+    @ResponseStatus(HttpStatus.OK)
+    public List<PatientModel> getAllPatients() {
+        return patientService.findAll();
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deletePatient(@PathVariable(value = "id") UUID id) {
-        Optional<PatientModel> patientModelOptional = patientService.findById(id);
-        if (patientModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found.");
-        } else {
-            patientService.delete(patientModelOptional.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Patient deleted successfully.");
-        }
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public PatientModel getSinglePatient(@PathVariable UUID id) {
+        return patientService.findOrFail(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAllPatients() {
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteAllPatients() {
         patientService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All patients were deleted successfully.");
+        return "All patients were deleted successfully.";
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteAllPatients(@PathVariable UUID id) {
+        patientService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updatePatient(@PathVariable(value = "id") UUID id, @RequestBody PatientModel patient) {
-        Optional<PatientModel> patientModelOptional = patientService.findById(id);
-        if (patientModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Patient not found");
-        } else {
-            var patientModel = new PatientModel();
-            BeanUtils.copyProperties(patient, patientModel);
-            return ResponseEntity.status(HttpStatus.OK).body(patientService.save(patientModel));
-        }
+    @ResponseStatus(HttpStatus.CREATED)
+    public PatientModel updatePatient(@PathVariable UUID id, @RequestBody PatientModel patient) {
+        PatientModel actualPatient = patientService.findOrFail(id);
+        BeanUtils.copyProperties(patient, actualPatient, "id");
+        return patientService.save(patient);
 
     }
 }

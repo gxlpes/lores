@@ -30,62 +30,41 @@ public class AppointmentController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AppointmentModel>> getAllAppointments() {
-        return ResponseEntity.status(HttpStatus.OK).body(appointmentService.findAll());
+    @ResponseStatus(HttpStatus.OK)
+    public List<AppointmentModel> getAllSpecialties() {
+        return appointmentService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleAppointment(@PathVariable(value = "id") UUID id) {
-        Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
-        if (appointmentModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Any appointment found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public AppointmentModel getSingleAppointment(@PathVariable UUID id) {
+        return appointmentService.findOrFail(id);
     }
 
     @GetMapping("/patient/{id}")
-    public ResponseEntity<Object> getAppointmentByPatientId(@PathVariable(value = "id") UUID id) {
-        Optional<List<AppointmentModel>> appointmentModelOptional = appointmentService.findByPatientId(id);
-        if (appointmentModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
-        }
-    }
-
-    @GetMapping("/dentist/{id}")
-    public ResponseEntity<List<AppointmentModel>> getAppointmentByDentistId(@PathVariable(value = "id") UUID id) {
-        Optional<List<AppointmentModel>> appointmentModelOptional = appointmentService.findByDentistId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteAppointment(@PathVariable(value = "id") UUID id) {
-        Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
-        if (appointmentModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found.");
-        } else {
-            appointmentService.delete(appointmentModelOptional.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Appointment deleted successfully.");
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<List<AppointmentModel>> getAppointmentByPatientId(@PathVariable(value = "id") UUID id) {
+        return appointmentService.findByPatientId(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAllAppointments() {
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteAllSpecialties() {
         appointmentService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All appointments were deleted successfully.");
+        return "All appointments were deleted successfully.";
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void Appointment(@PathVariable UUID id) {
+        appointmentService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateAppointment(@PathVariable(value = "id") UUID id, @RequestBody AppointmentModel patient) {
-        Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
-        if (appointmentModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found");
-        } else {
-            var appointmentModel = new AppointmentModel();
-            BeanUtils.copyProperties(patient, appointmentModel);
-            return ResponseEntity.status(HttpStatus.OK).body(appointmentService.save(appointmentModel));
-        }
+    @ResponseStatus(HttpStatus.CREATED)
+    public AppointmentModel updateAppointment(@PathVariable UUID id, @RequestBody AppointmentModel appointment) {
+        AppointmentModel actualAppointment = appointmentService.findOrFail(id);
+        BeanUtils.copyProperties(appointment, actualAppointment, "id");
+        return appointmentService.save(appointment);
     }
 }

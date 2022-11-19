@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -25,59 +24,43 @@ public class DentistController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveDentist(@RequestBody @Valid DentistDto dentistDto) {
-
-        if (dentistService.existsByCroNumber(dentistDto.getCroNumber())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CRO number is already in use.");
-        }
-
+    @ResponseStatus(HttpStatus.CREATED)
+    public DentistModel saveSpecialty(@RequestBody @Valid DentistDto dentistDto) {
         var dentistModel = new DentistModel();
         BeanUtils.copyProperties(dentistDto, dentistModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(dentistService.save(dentistModel));
+        return dentistService.save(dentistModel);
     }
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<DentistModel>> getAllDentists() {
         return ResponseEntity.status(HttpStatus.OK).body(dentistService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleDentist(@PathVariable(value = "id") UUID id) {
-        Optional<DentistModel> dentistModelOptional = dentistService.findById(id);
-        if (dentistModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dentist not found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(dentistModelOptional.get());
-        }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteDentist(@PathVariable(value = "id") UUID id) {
-        Optional<DentistModel> dentistModelOptional = dentistService.findById(id);
-        if (dentistModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dentist not found.");
-        } else {
-            dentistService.delete(dentistModelOptional.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Dentist deleted successfully.");
-        }
+    @ResponseStatus(HttpStatus.OK)
+    public DentistModel getSingleDentist(@PathVariable UUID id) {
+        return dentistService.findOrFail(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAllDentists() {
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteAllDentists() {
         dentistService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All dentists were deleted successfully.");
+        return "All dentists were deleted successfully.";
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteDentist(@PathVariable UUID id) {
+        dentistService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateDentist(@PathVariable(value = "id") UUID id, @RequestBody @Valid DentistDto dentistDto) {
-        Optional<DentistModel> dentistModelOptional = dentistService.findById(id);
-        if (dentistModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Dentist not found");
-        } else {
-            var dentistModel = new DentistModel();
-            BeanUtils.copyProperties(dentistDto, dentistModel);
-            return ResponseEntity.status(HttpStatus.OK).body(dentistService.save(dentistModel));
-        }
-
+    @ResponseStatus(HttpStatus.CREATED)
+    public DentistModel assignDentistToSpecialty(@PathVariable UUID id, @RequestBody DentistModel dentist) {
+        DentistModel actualSpecialty = dentistService.findOrFail(id);
+        BeanUtils.copyProperties(dentist, actualSpecialty, "id");
+        return dentistService.save(dentist);
     }
 }

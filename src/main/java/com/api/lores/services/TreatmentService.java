@@ -1,48 +1,58 @@
 package com.api.lores.services;
 
 import com.api.lores.entity.TreatmentModel;
+import com.api.lores.exception.EntityNotFound;
 import com.api.lores.repository.TreatmentRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
+
+import static com.api.lores.log.Logging.LOGGER;
 
 @Service
 public class TreatmentService {
+    public static final String TREATMENT = "Treatment";
     final TreatmentRepository treatmentRepository;
 
     public TreatmentService(TreatmentRepository treatmentRepository) {
         this.treatmentRepository = treatmentRepository;
     }
 
-    // save method
     @Transactional
     public TreatmentModel save(TreatmentModel specialtyModel) {
+        LOGGER.info(TREATMENT + " was saved");
         return treatmentRepository.save(specialtyModel);
     }
 
-    // find by id
-    public Optional<TreatmentModel> findById(UUID id) {
-        return treatmentRepository.findById(id);
+    public TreatmentModel findOrFail(UUID id) {
+        return treatmentRepository.findById(id).orElseThrow(() -> {
+            LOGGER.error("Error trying to find" + TREATMENT);
+            throw new EntityNotFound(String.format(TREATMENT + " do not exist with the %s", id));
+        });
     }
 
-    // find all dentists
     public List<TreatmentModel> findAll() {
         return treatmentRepository.findAll();
     }
 
-    // delete by id
     @Transactional
-    public void delete(TreatmentModel treatmentModel) {
-        treatmentRepository.delete(treatmentModel);
+    public void deleteById(UUID id) {
+        try {
+            LOGGER.info(TREATMENT + "was created");
+            treatmentRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new EntityNotFound(TREATMENT + " do not exist");
+        }
     }
 
-    // delete all
     @Transactional
     public void deleteAll() {
+        LOGGER.info("Deleting all " + TREATMENT);
         treatmentRepository.deleteAll();
     }
+
 }
 

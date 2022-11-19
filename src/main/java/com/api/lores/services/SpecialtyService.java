@@ -10,44 +10,50 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
+import static com.api.lores.log.Logging.LOGGER;
+
 @Service
 public class SpecialtyService {
+
     public static final String SPECIALTY_DOES_NOT_EXIST = "Specialty with %s does not exist.";
+    public static final String SPECIALTY = "Specialty";
     final SpecialtyRepository specialtyRepository;
 
     public SpecialtyService(SpecialtyRepository specialtyRepository) {
         this.specialtyRepository = specialtyRepository;
     }
 
-    // save method
     @Transactional
     public SpecialtyModel save(SpecialtyModel specialtyModel) {
+        LOGGER.info(SPECIALTY + " was saved");
         return specialtyRepository.save(specialtyModel);
     }
 
-    // find by id or send exception
     public SpecialtyModel findOrFail(UUID id) {
-        return specialtyRepository.findById(id).orElseThrow(() -> new EntityNotFound(String.format(SPECIALTY_DOES_NOT_EXIST, id)));
+        return specialtyRepository.findById(id).orElseThrow(() -> {
+            LOGGER.error("Error trying to find" + SPECIALTY);
+            throw new EntityNotFound(String.format(SPECIALTY_DOES_NOT_EXIST, id));
+        });
     }
 
-    // find all specialties
     public List<SpecialtyModel> findAll() {
         return specialtyRepository.findAll();
     }
 
-    // delete by id
     @Transactional
     public void deleteById(UUID id) {
         try {
+            LOGGER.info(SPECIALTY + " was deleted");
             specialtyRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new EntityNotFound("aaa");
+            LOGGER.error("Error trying to delete an entity");
+            throw new EntityNotFound(SPECIALTY + " do not exist");
         }
     }
 
-    // delete all
     @Transactional
     public void deleteAll() {
+        LOGGER.info("Deleting all " + SPECIALTY);
         specialtyRepository.deleteAll();
     }
 

@@ -1,51 +1,61 @@
 package com.api.lores.services;
 
 import com.api.lores.entity.DentistModel;
+import com.api.lores.exception.EntityNotFound;
 import com.api.lores.repository.DentistRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
+
+import static com.api.lores.log.Logging.LOGGER;
 
 @Service
 public class DentistService {
 
+    public static final String DENTIST = "Dentist";
     final DentistRepository dentistRepository;
+
     public DentistService(DentistRepository dentistRepository) {
         this.dentistRepository = dentistRepository;
     }
 
-    // save method
     @Transactional
     public DentistModel save(DentistModel dentistModel) {
+        LOGGER.info(DENTIST + " was saved");
         return dentistRepository.save(dentistModel);
     }
 
-    // find by id
-    public Optional<DentistModel> findById(UUID id) {
-        return dentistRepository.findById(id);
+    public DentistModel findOrFail(UUID id) {
+        return dentistRepository.findById(id).orElseThrow(() -> {
+            LOGGER.error("Error trying to find " + DENTIST);
+            throw new EntityNotFound(String.format("Entity does not exist with the %s", id));
+        });
     }
 
-    // find all dentists
     public List<DentistModel> findAll() {
         return dentistRepository.findAll();
     }
 
-    // delete by id
     @Transactional
-    public void delete(DentistModel dentistModel) {
-        dentistRepository.delete(dentistModel);
+    public void deleteById(UUID id) {
+        try {
+            LOGGER.info(DENTIST + " was deleted");
+            dentistRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            LOGGER.error("Error trying to delete a " + DENTIST);
+            throw new EntityNotFound("Entity do not exist");
+        }
     }
 
-    // delete all
     @Transactional
     public void deleteAll() {
+        LOGGER.info("Deleting all " + DENTIST);
         dentistRepository.deleteAll();
     }
 
-    // check if exists by cro
     public boolean existsByCroNumber(String croNumber) {
         return dentistRepository.existsByCroNumber(croNumber);
     }

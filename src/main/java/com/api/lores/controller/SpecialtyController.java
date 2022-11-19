@@ -41,6 +41,7 @@ public class SpecialtyController {
     }
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public SpecialtyModel getSingleSpecialty(@PathVariable UUID id) {
         return specialtyService.findOrFail(id);
     }
@@ -53,14 +54,14 @@ public class SpecialtyController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.OK)
     public void deleteSpecialty(@PathVariable UUID id) {
         specialtyService.deleteById(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public SpecialtyModel assignDentistToSpecialty(@PathVariable UUID specialtyId, @RequestBody SpecialtyModel specialty) {
+    public SpecialtyModel updateSpecialty(@PathVariable UUID specialtyId, @RequestBody SpecialtyModel specialty) {
         SpecialtyModel actualSpecialty = specialtyService.findOrFail(specialtyId);
         BeanUtils.copyProperties(specialty, actualSpecialty, "id");
         return specialtyService.save(specialty);
@@ -70,7 +71,7 @@ public class SpecialtyController {
     @ResponseStatus(HttpStatus.CREATED)
     public SpecialtyModel assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) {
         SpecialtyModel specialty = specialtyService.findOrFail(specialtyId);
-        DentistModel dentist = dentistService.findById(dentistId).get();
+        DentistModel dentist = dentistService.findOrFail(dentistId);
         specialty.assignDentist(dentist);
         return specialtyService.save(specialty);
     }
