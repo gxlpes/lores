@@ -17,13 +17,13 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "specialties")
 @Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Table(name = "specialties")
 
 public class SpecialtyModel {
     @Id
@@ -50,6 +50,8 @@ public class SpecialtyModel {
         this.dentist = dentist;
     }
 
+
+    // lombok
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

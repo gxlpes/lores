@@ -2,19 +2,21 @@ package com.api.lores.appointment;
 
 import com.api.lores.dentist.DentistModel;
 import com.api.lores.patient.PatientModel;
-import com.api.lores.specialty.SpecialtyModel;
 import com.api.lores.treatments.TreatmentModel;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "appointments")
 public class AppointmentModel {
@@ -26,15 +28,15 @@ public class AppointmentModel {
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "appointment_id")
-    private List<TreatmentModel> treatments;
+    @ManyToOne
+    @JoinColumn(name = "treat_id", referencedColumnName = "treatment_id")
+    private TreatmentModel treatment;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "pat_id", referencedColumnName = "patient_id")
     private PatientModel patient;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "dent_id", referencedColumnName = "dentist_id")
     private DentistModel dentist;
 
@@ -50,4 +52,18 @@ public class AppointmentModel {
     @Column
     private LocalDateTime dateAppointmentUpdate;
 
+
+    // lombok
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        AppointmentModel that = (AppointmentModel) o;
+        return id != null && Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }

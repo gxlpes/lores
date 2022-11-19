@@ -2,7 +2,9 @@ package com.api.lores.dentist;
 
 import com.api.lores.embedded.Person;
 import com.api.lores.specialty.SpecialtyModel;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,6 +22,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "dentists")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class DentistModel {
 
     @Id
@@ -40,6 +44,8 @@ public class DentistModel {
     @ToString.Exclude
     private Set<SpecialtyModel> specialties = new HashSet<>();
 
+    
+    // lombok
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

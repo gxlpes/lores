@@ -42,6 +42,8 @@ public class TreatmentModel {
         this.specialty = specialty;
     }
 
+
+    // lombok
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

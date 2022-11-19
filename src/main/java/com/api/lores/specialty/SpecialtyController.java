@@ -2,6 +2,7 @@ package com.api.lores.specialty;
 
 import com.api.lores.dentist.DentistModel;
 import com.api.lores.dentist.DentistService;
+import com.api.lores.specialty.SpecialtyModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +45,17 @@ public class SpecialtyController {
     @GetMapping
     public ResponseEntity<List<SpecialtyModel>> getAllSpecialties() {
         return ResponseEntity.status(HttpStatus.OK).body(specialtyService.findAll());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteSpecialty(@PathVariable(value = "id") UUID id) {
+        Optional<SpecialtyModel> specialtyModelOptional = specialtyService.findById(id);
+        if (specialtyModelOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found.");
+        } else {
+            specialtyService.delete(specialtyModelOptional.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Specialty deleted successfully.");
+        }
     }
 
     @PutMapping("/{specialtyId}/dentist/{dentistId}")

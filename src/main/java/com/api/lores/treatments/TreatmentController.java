@@ -1,5 +1,6 @@
 package com.api.lores.treatments;
 
+import com.api.lores.treatments.TreatmentModel;
 import com.api.lores.specialty.SpecialtyModel;
 import com.api.lores.specialty.SpecialtyService;
 import org.springframework.beans.BeanUtils;
@@ -46,12 +47,22 @@ public class TreatmentController {
         return ResponseEntity.status(HttpStatus.OK).body(treatmentService.findAll());
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteTreatment(@PathVariable(value = "id") UUID id) {
+        Optional<TreatmentModel> treatmentModelOptional = treatmentService.findById(id);
+        if (treatmentModelOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Treatment not found.");
+        } else {
+            treatmentService.delete(treatmentModelOptional.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Treatment deleted successfully.");
+        }
+    }
+
     @PutMapping("/{treatmentId}/specialty/{specialtyId}")
     public ResponseEntity<Object> assignSpecialtyToTreatment(@PathVariable UUID treatmentId, @PathVariable UUID specialtyId) {
         TreatmentModel treatment = treatmentService.findById(treatmentId).get();
         SpecialtyModel specialty = specialtyService.findById(specialtyId).get();
         treatment.assignSpecialty(specialty);
         return ResponseEntity.status(HttpStatus.CREATED).body(treatmentService.save(treatment));
-
     }
 }
