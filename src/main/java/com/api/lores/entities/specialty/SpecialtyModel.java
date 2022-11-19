@@ -50,7 +50,6 @@ public class SpecialtyModel {
         this.dentist = dentist;
     }
 
-
     // lombok
     @Override
     public boolean equals(Object o) {

@@ -4,34 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Everything working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/embedded/PersonDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericService.java" afterDir="false" />
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Trying generics">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/treatments/TreatmentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/appointment/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/appointment/AppointmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/appointment/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/appointment/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/appointment/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dentist/DentistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/embedded/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/embedded/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/patient/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/specialty/SpecialtyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/treatments/TreatmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/treatments/TreatmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/treatments/TreatmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/treatments/TreatmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/treatments/TreatmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/dentist/DentistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/patient/PatientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entities/specialty/SpecialtyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/generic/GenericService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +118,7 @@
       <workItem from="1668738451515" duration="8877000" />
       <workItem from="1668769603464" duration="3754000" />
       <workItem from="1668808345247" duration="2272000" />
-      <workItem from="1668810725895" duration="12689000" />
+      <workItem from="1668810725895" duration="16633000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -181,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668817348104</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Trying generics">
+      <created>1668826475880</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668826475880</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +201,8 @@
     <MESSAGE value="Relationship with specialties" />
     <MESSAGE value="Delete with relationship" />
     <MESSAGE value="Everything working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Everything working" />
+    <MESSAGE value="Trying generics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying generics" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

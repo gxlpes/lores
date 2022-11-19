@@ -28,7 +28,6 @@ public class PatientModel {
     @Embedded
     private Person person;
 
-
     // lombok
     @Override
     public boolean equals(Object o) {

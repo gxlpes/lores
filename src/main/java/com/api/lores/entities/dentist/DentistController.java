@@ -1,6 +1,5 @@
 package com.api.lores.entities.dentist;
 
-import com.api.lores.embedded.PersonDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -25,7 +26,7 @@ public class SpecialtyController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveSpecialty(@RequestBody SpecialtyModel specialtyRequest) {
+    public ResponseEntity<Object> saveSpecialty(@RequestBody @Valid SpecialtyModel specialtyRequest) {
         var specialtyModel = new SpecialtyModel();
         BeanUtils.copyProperties(specialtyRequest, specialtyModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(specialtyService.save(specialtyModel));

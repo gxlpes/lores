@@ -1,6 +1,8 @@
 package com.api.lores.generic;
 
-public abstract class GenericService<T> {
+import com.api.lores.generic.GenericRepository;
+
+abstract class GenericService<T> {
 
     public abstract GenericRepository<T> getRepository();
 
