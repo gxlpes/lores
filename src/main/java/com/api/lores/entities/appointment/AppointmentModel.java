@@ -1,8 +1,8 @@
-package com.api.lores.appointment;
+package com.api.lores.entities.appointment;
 
-import com.api.lores.dentist.DentistModel;
-import com.api.lores.patient.PatientModel;
-import com.api.lores.treatments.TreatmentModel;
+import com.api.lores.entities.dentist.DentistModel;
+import com.api.lores.entities.patient.PatientModel;
+import com.api.lores.entities.treatments.TreatmentModel;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;

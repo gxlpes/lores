@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.validation.constraints.NotBlank;
 
 @Embeddable
 @Data
@@ -14,7 +15,7 @@ public class Person {
     private String fullName;
 
     @Column
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Column(length = 11)
     private String cpfNumber;

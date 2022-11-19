@@ -1,4 +1,4 @@
-package com.api.lores.specialty;
+package com.api.lores.entities.specialty;
 
 import org.springframework.stereotype.Service;
 

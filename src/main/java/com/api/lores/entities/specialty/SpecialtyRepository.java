@@ -1,4 +1,4 @@
-package com.api.lores.specialty;
+package com.api.lores.entities.specialty;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.api.lores.patient;
+package com.api.lores.entities.patient;
 
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;

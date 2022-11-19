@@ -1,4 +1,4 @@
-package com.api.lores.dentist;
+package com.api.lores.entities.dentist;
 
 import org.springframework.stereotype.Service;
 
@@ -41,5 +41,10 @@ public class DentistService {
     @Transactional
     public void deleteAll() {
         dentistRepository.deleteAll();
+    }
+
+    // check if exists by cro
+    public boolean existsByCroNumber(String croNumber) {
+        return dentistRepository.existsByCroNumber(croNumber);
     }
 }

@@ -1,6 +1,5 @@
-package com.api.lores.treatments;
+package com.api.lores.entities.treatments;
 
-import com.api.lores.specialty.SpecialtyModel;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

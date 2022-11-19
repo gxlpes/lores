@@ -1,4 +1,4 @@
-package com.api.lores.patient;
+package com.api.lores.entities.patient;
 
 import com.api.lores.embedded.Person;
 import lombok.*;

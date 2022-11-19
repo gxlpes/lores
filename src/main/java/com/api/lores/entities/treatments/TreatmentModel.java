@@ -1,6 +1,6 @@
-package com.api.lores.treatments;
+package com.api.lores.entities.treatments;
 
-import com.api.lores.specialty.SpecialtyModel;
+import com.api.lores.entities.specialty.SpecialtyModel;
 import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;

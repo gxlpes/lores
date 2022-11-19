@@ -1,4 +1,4 @@
-package com.api.lores.appointment;
+package com.api.lores.entities.appointment;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -13,6 +13,7 @@ import java.util.UUID;
 @CrossOrigin
 @RequestMapping("/appointments")
 public class AppointmentController {
+
     final AppointmentService appointmentService;
 
     public AppointmentController(AppointmentService appointmentService) {
@@ -26,25 +27,29 @@ public class AppointmentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentService.save(appointmentModel));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleAppointment(@PathVariable(value = "id") UUID id) {
-        Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
-        if (appointmentModelOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found.");
-        } else {
-            return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
-        }
-    }
-
     @GetMapping
     public ResponseEntity<List<AppointmentModel>> getAllAppointments() {
         return ResponseEntity.status(HttpStatus.OK).body(appointmentService.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getSingleAppointment(@PathVariable(value = "id") UUID id) {
+        Optional<AppointmentModel> appointmentModelOptional = appointmentService.findById(id);
+        if (appointmentModelOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Any appointment found.");
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
+        }
+    }
+
     @GetMapping("/patient/{id}")
-    public ResponseEntity<List<AppointmentModel>> getAppointmentByPatientId(@PathVariable(value = "id") UUID id) {
+    public ResponseEntity<Object> getAppointmentByPatientId(@PathVariable(value = "id") UUID id) {
         Optional<List<AppointmentModel>> appointmentModelOptional = appointmentService.findByPatientId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
+        if (appointmentModelOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found.");
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(appointmentModelOptional.get());
+        }
     }
 
     @GetMapping("/dentist/{id}")
@@ -80,6 +85,5 @@ public class AppointmentController {
             BeanUtils.copyProperties(patient, appointmentModel);
             return ResponseEntity.status(HttpStatus.OK).body(appointmentService.save(appointmentModel));
         }
-
     }
 }

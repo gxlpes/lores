@@ -1,10 +1,9 @@
-package com.api.lores.specialty;
+package com.api.lores.entities.dentist;
 
-import com.api.lores.dentist.DentistModel;
-import com.api.lores.treatments.TreatmentModel;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.api.lores.embedded.Person;
+import com.api.lores.entities.specialty.SpecialtyModel;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -17,46 +16,41 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
+@Entity
+@Table(name = "dentists")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "specialties")
 
-public class SpecialtyModel {
+public class DentistModel {
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "specialty_id", updatable = false, nullable = false)
+    @Column(name = "dentist_id", updatable = false, nullable = false)
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
-    @Column(nullable = false, length = 20)
-    private String title;
+    @Column(nullable = false, unique = true, length = 10)
+    private String croNumber;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dentist_id", referencedColumnName = "dentist_id")
-    private DentistModel dentist;
+    @Embedded
+    private Person person;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "specialty", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "dentist", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @ToString.Exclude
-    private Set<TreatmentModel> treatments = new HashSet<>();
+    private Set<SpecialtyModel> specialties = new HashSet<>();
 
-    public void assignDentist(DentistModel dentist) {
-        this.dentist = dentist;
-    }
-
-
+    
     // lombok
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        SpecialtyModel that = (SpecialtyModel) o;
+        DentistModel that = (DentistModel) o;
         return id != null && Objects.equals(id, that.id);
     }
 

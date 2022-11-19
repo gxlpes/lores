@@ -1,6 +1,5 @@
-package com.api.lores.treatments;
+package com.api.lores.entities.treatments;
 
-import com.api.lores.specialty.SpecialtyModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

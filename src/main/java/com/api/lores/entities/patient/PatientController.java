@@ -1,7 +1,5 @@
-package com.api.lores.patient;
+package com.api.lores.entities.patient;
 
-import com.api.lores.patient.PatientModel;
-import com.api.lores.patient.PatientService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +26,11 @@ public class PatientController {
         return ResponseEntity.status(HttpStatus.CREATED).body(patientService.save(patientModel));
     }
 
+    @GetMapping
+    public ResponseEntity<List<PatientModel>> getAllPatients() {
+        return ResponseEntity.status(HttpStatus.OK).body(patientService.findAll());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> getSinglePatient(@PathVariable(value = "id") UUID id) {
         Optional<PatientModel> patientModelOptional = patientService.findById(id);
@@ -38,9 +41,10 @@ public class PatientController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<List<PatientModel>> getAllPatients() {
-        return ResponseEntity.status(HttpStatus.OK).body(patientService.findAll());
+    @DeleteMapping
+    public ResponseEntity<Object> deleteAllPatients() {
+        patientService.deleteAll();
+        return ResponseEntity.status(HttpStatus.OK).body("All patients were deleted successfully.");
     }
 
     @DeleteMapping("/{id}")
@@ -54,12 +58,6 @@ public class PatientController {
         }
     }
 
-    @DeleteMapping
-    public ResponseEntity<Object> deleteAllPatients() {
-        patientService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All patients were deleted successfully.");
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<Object> updatePatient(@PathVariable(value = "id") UUID id, @RequestBody PatientModel patient) {
         Optional<PatientModel> patientModelOptional = patientService.findById(id);
@@ -70,6 +68,5 @@ public class PatientController {
             BeanUtils.copyProperties(patient, patientModel);
             return ResponseEntity.status(HttpStatus.OK).body(patientService.save(patientModel));
         }
-
     }
 }

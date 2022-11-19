@@ -1,8 +1,7 @@
-package com.api.lores.treatments;
+package com.api.lores.entities.treatments;
 
-import com.api.lores.treatments.TreatmentModel;
-import com.api.lores.specialty.SpecialtyModel;
-import com.api.lores.specialty.SpecialtyService;
+import com.api.lores.entities.specialty.SpecialtyService;
+import com.api.lores.entities.specialty.SpecialtyModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +31,11 @@ public class TreatmentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(treatmentService.save(treatmentModel));
     }
 
+    @GetMapping
+    public ResponseEntity<List<TreatmentModel>> getAllTreatments() {
+        return ResponseEntity.status(HttpStatus.OK).body(treatmentService.findAll());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Object> getSingleTreatment(@PathVariable(value = "id") UUID id) {
         Optional<TreatmentModel> treatmentModelOptional = treatmentService.findById(id);
@@ -42,9 +46,10 @@ public class TreatmentController {
         }
     }
 
-    @GetMapping
-    public ResponseEntity<List<TreatmentModel>> getAllTreatments() {
-        return ResponseEntity.status(HttpStatus.OK).body(treatmentService.findAll());
+    @DeleteMapping
+    public ResponseEntity<Object> deleteAllTreatments() {
+        treatmentService.deleteAll();
+        return ResponseEntity.status(HttpStatus.OK).body("All treatments were deleted successfully.");
     }
 
     @DeleteMapping("/{id}")
