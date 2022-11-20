@@ -10,19 +10,19 @@ import javax.persistence.Embedded;
 @Data
 public class Person {
 
-    @Column(length = 60)
+    @Column
     private String fullName;
 
     @Column
     private LocalDate birthdate;
 
-    @Column(length = 11)
+    @Column
     private String cpfNumber;
 
-    @Column(nullable = true, length = 11)
+    @Column(nullable = true)
     private String telephoneNumber;
 
-    @Column(nullable = true, length = 30)
+    @Column(nullable = true)
     private String emailAddress;
 
     @Embedded

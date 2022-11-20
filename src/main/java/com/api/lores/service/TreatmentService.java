@@ -1,4 +1,4 @@
-package com.api.lores.services;
+package com.api.lores.service;
 
 import com.api.lores.entity.TreatmentModel;
 import com.api.lores.exception.EntityNotFound;

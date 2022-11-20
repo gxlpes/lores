@@ -10,11 +10,8 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
 
+@Data
 @Entity
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
 @Table(name = "treatments")
 public class TreatmentModel {
 

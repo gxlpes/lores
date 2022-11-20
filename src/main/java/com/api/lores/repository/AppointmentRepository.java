@@ -12,7 +12,6 @@ import java.util.UUID;
 public interface AppointmentRepository extends JpaRepository<AppointmentModel, UUID> {
 
     Optional<List<AppointmentModel>> findByPatientId(UUID id);
-
     Optional<List<AppointmentModel>> findByDentistId(UUID id);
 
 }

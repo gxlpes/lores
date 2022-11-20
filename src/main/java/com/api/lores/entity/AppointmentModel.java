@@ -10,10 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 @Entity
 @Table(name = "appointments")
 public class AppointmentModel {
@@ -48,7 +45,6 @@ public class AppointmentModel {
 
     @Column
     private LocalDateTime dateAppointmentUpdate;
-
 
     // lombok
     @Override

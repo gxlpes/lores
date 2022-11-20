@@ -4,26 +4,21 @@ import com.api.lores.entity.embedded.Person;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 @Entity
 @Table(name = "dentists")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-
 public class DentistModel {
 
     @Id
@@ -33,7 +28,6 @@ public class DentistModel {
     @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
-    @NotBlank
     @Column(nullable = false, unique = true, length = 10)
     private String croNumber;
 
@@ -45,18 +39,4 @@ public class DentistModel {
     @ToString.Exclude
     private Set<SpecialtyModel> specialties = new HashSet<>();
 
-    
-    // lombok
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        DentistModel that = (DentistModel) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

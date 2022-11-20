@@ -2,8 +2,8 @@ package com.api.lores.controller;
 
 import com.api.lores.entity.SpecialtyModel;
 import com.api.lores.entity.TreatmentModel;
-import com.api.lores.services.SpecialtyService;
-import com.api.lores.services.TreatmentService;
+import com.api.lores.service.SpecialtyService;
+import com.api.lores.service.TreatmentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
