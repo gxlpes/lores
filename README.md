@@ -2,7 +2,7 @@
 Repository created to store the API for the Lores Dental Clinic. This project that was requested by the teacher Andre during the Atos Java Academy using Spring Data JPA
 and will receive further updates related to tech.
 
-This API supports GET, POST, DELETE and PUT methods from HTTP Protocol. The API manages patients, dentists, appointments, treatments and specialties of a fictional clinic called Lores.
+This API supports <code>GET</code>, <code>POST</code>, <code>DELETE</code> and <code>PUT</code> methods from HTTP Protocol. The API manages patients, dentists, appointments, treatments and specialties of a fictional clinic called Lores.
 
 <b>Tech used:</b>
 <ul>
