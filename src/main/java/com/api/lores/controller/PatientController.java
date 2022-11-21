@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@RestController
 @CrossOrigin
+@RestController
 @RequestMapping("/patients")
 public class PatientController {
     final PatientService patientService;
@@ -40,7 +40,7 @@ public class PatientController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteAllPatients(@PathVariable UUID id) {
-       return patientService.deleteById(id);
+        return patientService.deleteById(id);
     }
 
     @PutMapping("/{id}")

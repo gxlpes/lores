@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -68,7 +69,7 @@ public class AppointmentService {
         try {
             LOGGER.info(APPOINTMENT + " was deleted");
             appointmentRepository.deleteById(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Patient was deleted");
+            return ResponseEntity.status(HttpStatus.OK).body("Appointment was deleted");
         } catch (EmptyResultDataAccessException e) {
             LOGGER.error("Error trying to delete a " + APPOINTMENT);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No appointments were submitted");
@@ -80,6 +81,14 @@ public class AppointmentService {
         appointmentRepository.deleteAll();
         LOGGER.info("Deleting all " + APPOINTMENT);
         return ResponseEntity.status(HttpStatus.OK).body("All appointments were deleted");
+    }
+
+    public ResponseEntity<AppointmentModel> update (UUID id, AppointmentDto appointmentDto) {
+        AppointmentModel appointmentModelToEdit = findOrFail(id);
+        AppointmentModel appointmentModel = convertDtoToModel(appointmentDto);
+        BeanUtils.copyProperties(appointmentModel, appointmentModelToEdit);
+        appointmentModelToEdit.setDateAppointmentLastUpdate(LocalDateTime.now());
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentRepository.save(appointmentModelToEdit));
     }
 
     public AppointmentModel convertDtoToModel(AppointmentDto appointmentDto) {

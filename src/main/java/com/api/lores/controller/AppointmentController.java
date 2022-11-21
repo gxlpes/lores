@@ -3,8 +3,7 @@ package com.api.lores.controller;
 import com.api.lores.dto.AppointmentDto;
 import com.api.lores.entity.AppointmentModel;
 import com.api.lores.service.AppointmentService;
-import org.springframework.beans.BeanUtils;
-import org.springframework.http.HttpStatus;
+import com.api.lores.service.DentistService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +12,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@RestController
 @CrossOrigin
+@RestController
 @RequestMapping("/appointments")
 public class AppointmentController {
 
     final AppointmentService appointmentService;
+    final DentistService dentistService;
 
-    public AppointmentController(AppointmentService appointmentService) {
+    public AppointmentController(AppointmentService appointmentService, DentistService dentistService) {
         this.appointmentService = appointmentService;
+        this.dentistService = dentistService;
     }
 
     @PostMapping
@@ -44,13 +45,13 @@ public class AppointmentController {
         return appointmentService.findByPatientId(id);
     }
 
-    @GetMapping("/patient/{id}")
+    @GetMapping("/dentist/{id}")
     public Optional<List<AppointmentModel>> getAppointByDentistId(@PathVariable(value = "id") UUID id) {
         return appointmentService.findByDentistId(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteAllSpecialties() {
+    public ResponseEntity<String> deleteAllAppointments() {
         return appointmentService.deleteAll();
     }
 
@@ -60,10 +61,7 @@ public class AppointmentController {
     }
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Object> updateAppointment(@PathVariable UUID id, @RequestBody AppointmentDto appointment) {
-        AppointmentModel actualAppointment = appointmentService.findOrFail(id);
-        BeanUtils.copyProperties(appointment, actualAppointment, "id");
-        return appointmentService.save(appointment);
+    public ResponseEntity<AppointmentModel> updateAppointment(@PathVariable UUID id, @RequestBody AppointmentDto appointmentDto) {
+        return appointmentService.update(id, appointmentDto);
     }
 }

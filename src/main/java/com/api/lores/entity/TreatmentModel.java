@@ -28,7 +28,7 @@ public class TreatmentModel {
     @Column(nullable = false, length = 20)
     private String procedureName;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private BigDecimal priceAppointment;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -39,18 +39,4 @@ public class TreatmentModel {
         this.specialty = specialty;
     }
 
-
-    // lombok
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        TreatmentModel that = (TreatmentModel) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

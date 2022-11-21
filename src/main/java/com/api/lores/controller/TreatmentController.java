@@ -1,5 +1,6 @@
 package com.api.lores.controller;
 
+import com.api.lores.dto.TreatmentDto;
 import com.api.lores.entity.SpecialtyModel;
 import com.api.lores.entity.TreatmentModel;
 import com.api.lores.service.SpecialtyService;
@@ -9,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 import java.util.UUID;
 
 @CrossOrigin
@@ -26,36 +27,31 @@ public class TreatmentController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public TreatmentModel saveTreatment(@RequestBody TreatmentModel treatmentRequest) {
+    public TreatmentModel saveTreatment(@RequestBody @Valid TreatmentDto treatmentDto) {
         var treatmentModel = new TreatmentModel();
-        BeanUtils.copyProperties(treatmentRequest, treatmentModel);
+        BeanUtils.copyProperties(treatmentDto, treatmentModel);
         return treatmentService.save(treatmentModel);
     }
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<TreatmentModel> getAllTreatments() {
+    public ResponseEntity<Object> getAllTreatments() {
         return treatmentService.findAll();
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public TreatmentModel getSingleTreatment(@PathVariable(value = "id") UUID id) {
-        return treatmentService.findOrFail(id);
+    public ResponseEntity<Object> getSingleTreatment(@PathVariable(value = "id") UUID id) {
+        return treatmentService.findById(id);
     }
 
     @DeleteMapping
-    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Object> deleteAllTreatments() {
         treatmentService.deleteAll();
         return ResponseEntity.status(HttpStatus.OK).body("All treatments were deleted successfully.");
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteTreatment(@PathVariable UUID id) {
-        treatmentService.deleteById(id);
+    public ResponseEntity<Object> deleteTreatment(@PathVariable UUID id) {
+        return treatmentService.deleteById(id);
     }
 
     @PutMapping("/{treatmentId}/specialty/{specialtyId}")

@@ -1,13 +1,11 @@
 package com.api.lores.entity;
 
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.UUID;
 
 @Data
@@ -41,22 +39,9 @@ public class AppointmentModel {
     private LocalDateTime dateAppointment;
 
     @Column
-    private LocalDateTime dateAppointmentRegistration;
+    private LocalDateTime dateRegistration;
 
     @Column
-    private LocalDateTime dateAppointmentUpdate;
+    private LocalDateTime dateAppointmentLastUpdate;
 
-    // lombok
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        AppointmentModel that = (AppointmentModel) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }
