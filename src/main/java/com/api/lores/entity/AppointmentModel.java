@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -36,7 +37,7 @@ public class AppointmentModel {
     private String reason;
 
     @Column
-    private LocalDateTime dateAppointment;
+    private LocalDate dateAppointment;
 
     @Column
     private LocalDateTime dateRegistration;

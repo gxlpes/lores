@@ -30,7 +30,9 @@ public class AppointmentService {
 
     @Transactional
     public ResponseEntity<Object> save(AppointmentDto appointmentDto) {
-        var appointmentModel = convertDtoToModel(appointmentDto);
+        var appointmentModel = new AppointmentModel();
+        BeanUtils.copyProperties(appointmentDto, appointmentModel);
+        appointmentModel.setDateRegistration(LocalDateTime.now());
         LOGGER.info(APPOINTMENT + " was saved");
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentRepository.save(appointmentModel));
     }
@@ -83,17 +85,13 @@ public class AppointmentService {
         return ResponseEntity.status(HttpStatus.OK).body("All appointments were deleted");
     }
 
-    public ResponseEntity<AppointmentModel> update (UUID id, AppointmentDto appointmentDto) {
+    public ResponseEntity<AppointmentModel> update(UUID id, AppointmentDto appointmentDto) {
         AppointmentModel appointmentModelToEdit = findOrFail(id);
-        AppointmentModel appointmentModel = convertDtoToModel(appointmentDto);
-        BeanUtils.copyProperties(appointmentModel, appointmentModelToEdit);
-        appointmentModelToEdit.setDateAppointmentLastUpdate(LocalDateTime.now());
-        return ResponseEntity.status(HttpStatus.OK).body(appointmentRepository.save(appointmentModelToEdit));
-    }
-
-    public AppointmentModel convertDtoToModel(AppointmentDto appointmentDto) {
         var appointmentModel = new AppointmentModel();
         BeanUtils.copyProperties(appointmentDto, appointmentModel);
-        return appointmentModel;
+        appointmentModel.setId(appointmentModelToEdit.getId());
+        appointmentModel.setDateAppointmentLastUpdate(LocalDateTime.now());
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentRepository.save(appointmentModel));
     }
+
 }

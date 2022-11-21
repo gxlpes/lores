@@ -79,15 +79,17 @@ public class SpecialtyService {
     @Transactional
     public ResponseEntity<SpecialtyModel> update(UUID id, SpecialtyDto specialtyDto) {
         SpecialtyModel specialtyModelToEdit = findOrFail(id);
-        SpecialtyModel appointmentModel = convertDtoToModel(specialtyDto);
-        BeanUtils.copyProperties(appointmentModel, specialtyModelToEdit);
-        return ResponseEntity.status(HttpStatus.OK).body(specialtyRepository.save(specialtyModelToEdit));
+        var specialtyModel = new SpecialtyModel();
+        BeanUtils.copyProperties(specialtyDto, specialtyModel);
+        specialtyModel.setId(specialtyModelToEdit.getId());
+        return ResponseEntity.status(HttpStatus.OK).body(specialtyRepository.save(specialtyModel));
     }
 
     public ResponseEntity<Object> assignDentistToSpecialty(UUID idSpec, UUID idDent) {
         SpecialtyModel specialty = findOrFail(idSpec);
         DentistModel dentist = dentistService.findOrFail(idDent);
         specialty.assignDentist(dentist);
+        specialtyRepository.save(specialty);
         return ResponseEntity.status(HttpStatus.OK).body("Dentist assigned to specialty.");
     }
 

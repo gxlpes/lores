@@ -6,8 +6,10 @@ import com.api.lores.entity.TreatmentModel;
 import lombok.Data;
 
 import javax.validation.Valid;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Data
 public class AppointmentDto {
@@ -16,12 +18,15 @@ public class AppointmentDto {
     @Size(max = 200)
     private String reason;
 
+    @FutureOrPresent
+    private LocalDate dateAppointment;
+
+    @Valid
+    private TreatmentModel treatment;
+
     @Valid
     private DentistModel dentist;
 
     @Valid
-    private TreatmentModel treatmentModel;
-
-    @Valid
-    private PatientModel patientModel;
+    private PatientModel patient;
 }

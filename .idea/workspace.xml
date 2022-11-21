@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Refactoring code again">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/AppointmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/AppointmentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/TreatmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/TreatmentDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/AppointmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/AppointmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/TreatmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/TreatmentModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/AppointmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/SpecialtyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/SpecialtyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/TreatmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/TreatmentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +132,8 @@
       <workItem from="1668831206325" duration="2277000" />
       <workItem from="1668859560561" duration="31620000" />
       <workItem from="1668951530357" duration="22357000" />
-      <workItem from="1668980867181" duration="8815000" />
+      <workItem from="1668980867181" duration="14435000" />
+      <workItem from="1669029171018" duration="2330000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -231,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668978903675</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updates">
+      <created>1668996310191</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668996310191</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +265,8 @@
     <MESSAGE value="Refactor code" />
     <MESSAGE value="Added logger" />
     <MESSAGE value="Refactoring code again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code again" />
+    <MESSAGE value="Updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
