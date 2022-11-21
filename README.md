@@ -1,4 +1,4 @@
-# lores
+# Lores Dental Clinic API
 Repository created to store the API for the Lores Dental Clinic.
 
 <b>Tech used:</b>
