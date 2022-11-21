@@ -45,7 +45,7 @@ public class DentistController {
     }
 
     @PutMapping("/{id}")
-    public void updateDentist(@PathVariable UUID id, @RequestBody @Valid DentistDto dentistDto) {
-        dentistService.updateDentist(id, dentistDto);
+    public ResponseEntity<String> updateDentist(@PathVariable UUID id, @RequestBody @Valid DentistDto dentistDto) {
+        return dentistService.updateDentist(id, dentistDto);
     }
 }

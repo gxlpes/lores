@@ -76,11 +76,12 @@ public class DentistService {
     }
 
     @Transactional
-    public void updateDentist(UUID id, DentistDto dentistDto) {
+    public ResponseEntity<String> updateDentist(UUID id, DentistDto dentistDto) {
         DentistModel dentistToEdit = findOrFail(id);
         var dentistModel = convertDtoToModel(dentistDto);
         dentistModel.setId(dentistToEdit.getId());
         dentistRepository.save(dentistModel);
+        return ResponseEntity.status(HttpStatus.OK).body("The dentist was updated");
     }
 
     public DentistModel convertDtoToModel(DentistDto dentistDto) {
