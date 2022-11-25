@@ -3,7 +3,6 @@ package com.api.lores.controller;
 import com.api.lores.dto.AppointmentDto;
 import com.api.lores.entity.AppointmentModel;
 import com.api.lores.service.AppointmentService;
-import com.api.lores.service.DentistService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,11 +17,9 @@ import java.util.UUID;
 public class AppointmentController {
 
     final AppointmentService appointmentService;
-    final DentistService dentistService;
 
-    public AppointmentController(AppointmentService appointmentService, DentistService dentistService) {
+    public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
-        this.dentistService = dentistService;
     }
 
     @PostMapping

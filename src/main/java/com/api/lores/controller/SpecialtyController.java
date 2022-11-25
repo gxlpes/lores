@@ -2,6 +2,7 @@ package com.api.lores.controller;
 
 import com.api.lores.dto.SpecialtyDto;
 import com.api.lores.entity.SpecialtyModel;
+import com.api.lores.exception.NotFoundException;
 import com.api.lores.service.SpecialtyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -51,7 +52,7 @@ public class SpecialtyController {
     }
 
     @PutMapping("/{specialtyId}/dentist/{dentistId}")
-    public ResponseEntity<Object> assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) {
+    public ResponseEntity<Object> assignDentistToSpecialty(@PathVariable UUID specialtyId, @PathVariable UUID dentistId) throws NotFoundException {
         return specialtyService.assignDentistToSpecialty(specialtyId, dentistId);
     }
 }

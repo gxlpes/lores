@@ -5,6 +5,7 @@ import com.api.lores.entity.DentistModel;
 import com.api.lores.entity.SpecialtyModel;
 import com.api.lores.exception.EntityNotFound;
 import com.api.lores.repository.SpecialtyRepository;
+import com.api.lores.service.dentist.DentistService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;

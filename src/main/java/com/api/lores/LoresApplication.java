@@ -1,9 +1,12 @@
 package com.api.lores;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 import static com.api.lores.log.Logging.LOGGER;
+
 
 @SpringBootApplication
 public class LoresApplication {

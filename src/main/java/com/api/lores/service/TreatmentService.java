@@ -3,6 +3,7 @@ package com.api.lores.service;
 import com.api.lores.dto.TreatmentDto;
 import com.api.lores.entity.TreatmentModel;
 import com.api.lores.exception.EntityNotFound;
+import com.api.lores.exception.NotFoundException;
 import com.api.lores.repository.TreatmentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.dao.EmptyResultDataAccessException;

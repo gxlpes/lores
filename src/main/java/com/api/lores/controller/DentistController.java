@@ -1,7 +1,9 @@
 package com.api.lores.controller;
 
 import com.api.lores.dto.DentistDto;
-import com.api.lores.service.DentistService;
+import com.api.lores.exception.NotFoundException;
+import com.api.lores.service.dentist.DentistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,11 +11,11 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @CrossOrigin
-@RestController
 @RequestMapping("/dentists")
+@RestController
 public class DentistController {
 
-    final DentistService dentistService;
+     private final DentistService dentistService;
 
     public DentistController(DentistService dentistService) {
         this.dentistService = dentistService;
@@ -25,27 +27,27 @@ public class DentistController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllDentists() {
+    public ResponseEntity<Object> getAllDentists() throws NotFoundException {
         return dentistService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleDentist(@PathVariable UUID id) {
+    public DentistDto getSingleDentist(@PathVariable UUID id) throws NotFoundException {
         return dentistService.findById(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteAllDentists() {
+    public ResponseEntity<String> deleteAllDentists() throws NotFoundException {
         return dentistService.deleteAll();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteDentist(@PathVariable UUID id) {
+    public ResponseEntity<Object> deleteDentist(@PathVariable UUID id) throws NotFoundException {
         return dentistService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateDentist(@PathVariable UUID id, @RequestBody @Valid DentistDto dentistDto) {
-        return dentistService.updateDentist(id, dentistDto);
+    public ResponseEntity<String> updateDentist(@PathVariable UUID id, @RequestBody @Valid DentistDto dentistDto) throws NotFoundException {
+        return dentistService.update(id, dentistDto);
     }
 }
