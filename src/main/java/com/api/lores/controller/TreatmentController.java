@@ -1,11 +1,9 @@
 package com.api.lores.controller;
 
 import com.api.lores.dto.TreatmentDto;
-import com.api.lores.entity.SpecialtyModel;
-import com.api.lores.entity.TreatmentModel;
-import com.api.lores.service.SpecialtyService;
-import com.api.lores.service.TreatmentService;
-import org.springframework.beans.BeanUtils;
+import com.api.lores.exception.NotFoundException;
+import com.api.lores.service.specialty.SpecialtyService;
+import com.api.lores.service.treatment.TreatmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,39 +25,33 @@ public class TreatmentController {
     }
 
     @PostMapping
-    public TreatmentModel saveTreatment(@RequestBody @Valid TreatmentDto treatmentDto) {
-        var treatmentModel = new TreatmentModel();
-        BeanUtils.copyProperties(treatmentDto, treatmentModel);
-        return treatmentService.save(treatmentModel);
+    public ResponseEntity<Object> saveTreatment(@RequestBody @Valid TreatmentDto treatmentDto) {
+        return treatmentService.save(treatmentDto);
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllTreatments() {
+    public ResponseEntity<Object> getAllTreatments() throws NotFoundException {
         return treatmentService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleTreatment(@PathVariable(value = "id") UUID id) {
+    public TreatmentDto getSingleTreatment(@PathVariable(value = "id") UUID id) throws NotFoundException {
         return treatmentService.findById(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<Object> deleteAllTreatments() {
-        treatmentService.deleteAll();
-        return ResponseEntity.status(HttpStatus.OK).body("All treatments were deleted successfully.");
+    public ResponseEntity<String> deleteAllTreatments() throws NotFoundException {
+        return treatmentService.deleteAll();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteTreatment(@PathVariable UUID id) {
+    public ResponseEntity<Object> deleteTreatment(@PathVariable UUID id) throws NotFoundException {
         return treatmentService.deleteById(id);
     }
 
     @PutMapping("/{treatmentId}/specialty/{specialtyId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public TreatmentModel assignSpecialtyToTreatment(@PathVariable UUID treatmentId, @PathVariable UUID specialtyId) {
-        TreatmentModel treatment = treatmentService.findOrFail(treatmentId);
-        SpecialtyModel specialty = specialtyService.findOrFail(specialtyId);
-        treatment.assignSpecialty(specialty);
-        return treatmentService.save(treatment);
+    public ResponseEntity<Object> assignSpecialtyToTreatment(@PathVariable UUID treatmentId, @PathVariable UUID specialtyId) {
+        return treatmentService.assignSpecialtyToTreatment(treatmentId, specialtyId);
     }
 }

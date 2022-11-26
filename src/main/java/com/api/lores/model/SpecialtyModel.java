@@ -1,4 +1,4 @@
-package com.api.lores.entity;
+package com.api.lores.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -39,24 +39,10 @@ public class SpecialtyModel {
 
     @JsonIgnore
     @OneToMany(mappedBy = "specialty", orphanRemoval = true, cascade = CascadeType.PERSIST)
-    @ToString.Exclude
     private Set<TreatmentModel> treatments = new HashSet<>();
 
     public void assignDentist(DentistModel dentist) {
         this.dentist = dentist;
     }
 
-    // lombok
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        SpecialtyModel that = (SpecialtyModel) o;
-        return id != null && Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

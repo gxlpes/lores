@@ -1,6 +1,6 @@
 package com.api.lores.dto;
 
-import com.api.lores.entity.embedded.Person;
+import com.api.lores.model.embedded.Person;
 import lombok.Data;
 
 @Data

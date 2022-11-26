@@ -2,7 +2,7 @@ package com.api.lores.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import com.api.lores.dto.DentistDto;
-import com.api.lores.entity.DentistModel;
+import com.api.lores.model.DentistModel;
 
 @Mapper
 public interface DentistMapper {

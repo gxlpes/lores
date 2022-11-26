@@ -1,7 +1,6 @@
 package com.api.lores.repository;
 
-import com.api.lores.entity.PatientModel;
-import com.api.lores.entity.embedded.Person;
+import com.api.lores.model.PatientModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

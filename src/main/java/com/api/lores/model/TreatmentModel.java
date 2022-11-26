@@ -1,13 +1,11 @@
-package com.api.lores.entity;
+package com.api.lores.model;
 
 import lombok.*;
-import org.hibernate.Hibernate;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.UUID;
 
 @Data

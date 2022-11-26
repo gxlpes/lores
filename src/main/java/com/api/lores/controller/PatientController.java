@@ -1,7 +1,8 @@
 package com.api.lores.controller;
 
 import com.api.lores.dto.PatientDto;
-import com.api.lores.service.PatientService;
+import com.api.lores.exception.NotFoundException;
+import com.api.lores.service.patient.PatientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,27 +25,27 @@ public class PatientController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllPatients() {
+    public ResponseEntity<Object> getAllPatients() throws NotFoundException {
         return patientService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSinglePatient(@PathVariable UUID id) {
+    public PatientDto getSinglePatient(@PathVariable UUID id) throws NotFoundException {
         return patientService.findById(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteAllPatients() {
+    public ResponseEntity<String> deleteAllPatients() throws NotFoundException {
         return patientService.deleteAll();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteAllPatients(@PathVariable UUID id) {
+    public ResponseEntity<Object> deleteAllPatients(@PathVariable UUID id) throws NotFoundException {
         return patientService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePatient(@PathVariable UUID id, @RequestBody @Valid PatientDto patientDto) {
-        return patientService.updatePatient(id, patientDto);
+    public ResponseEntity<String> updatePatient(@PathVariable UUID id, @RequestBody @Valid PatientDto patientDto) throws NotFoundException {
+        return patientService.update(id, patientDto);
     }
 }

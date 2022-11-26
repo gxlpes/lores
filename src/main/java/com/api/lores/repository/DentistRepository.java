@@ -1,7 +1,6 @@
 package com.api.lores.repository;
 
-import com.api.lores.entity.DentistModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.api.lores.model.DentistModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

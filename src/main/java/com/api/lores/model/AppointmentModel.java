@@ -1,4 +1,4 @@
-package com.api.lores.entity;
+package com.api.lores.model;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;

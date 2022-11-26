@@ -1,4 +1,4 @@
-package com.api.lores.entity.embedded;
+package com.api.lores.model.embedded;
 
 import lombok.Data;
 import java.time.LocalDate;

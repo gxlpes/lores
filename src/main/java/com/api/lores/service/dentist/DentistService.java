@@ -1,13 +1,11 @@
 package com.api.lores.service.dentist;
 
 import com.api.lores.dto.DentistDto;
-import com.api.lores.entity.DentistModel;
+import com.api.lores.model.DentistModel;
 import com.api.lores.exception.NotFoundException;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-@Service
 public interface DentistService {
 
     DentistDto findById(UUID id) throws NotFoundException;
@@ -22,5 +20,5 @@ public interface DentistService {
 
     ResponseEntity<Object> deleteById(UUID id) throws NotFoundException;
 
-    DentistModel findOrFail(UUID idDent);
+    DentistModel findOrFail(UUID id);
 }

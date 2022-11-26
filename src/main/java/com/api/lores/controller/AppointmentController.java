@@ -1,8 +1,9 @@
 package com.api.lores.controller;
 
 import com.api.lores.dto.AppointmentDto;
-import com.api.lores.entity.AppointmentModel;
-import com.api.lores.service.AppointmentService;
+import com.api.lores.exception.NotFoundException;
+import com.api.lores.model.AppointmentModel;
+import com.api.lores.service.appointment.AppointmentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,12 +29,12 @@ public class AppointmentController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllAppointments() {
+    public ResponseEntity<Object> getAllAppointments() throws NotFoundException {
         return appointmentService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleAppointment(@PathVariable UUID id) {
+    public AppointmentDto getSingleAppointment(@PathVariable UUID id) throws NotFoundException {
         return appointmentService.findById(id);
     }
 
@@ -48,17 +49,17 @@ public class AppointmentController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteAllAppointments() {
+    public ResponseEntity<String> deleteAllAppointments() throws NotFoundException {
         return appointmentService.deleteAll();
     }
 
     @DeleteMapping("/{id}")
-    public void Appointment(@PathVariable UUID id) {
+    public void Appointment(@PathVariable UUID id) throws NotFoundException {
         appointmentService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<AppointmentModel> updateAppointment(@PathVariable UUID id, @RequestBody AppointmentDto appointmentDto) {
+    public ResponseEntity<String> updateAppointment(@PathVariable UUID id, @RequestBody AppointmentDto appointmentDto) throws NotFoundException {
         return appointmentService.update(id, appointmentDto);
     }
 }

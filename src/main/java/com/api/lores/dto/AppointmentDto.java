@@ -1,8 +1,8 @@
 package com.api.lores.dto;
 
-import com.api.lores.entity.DentistModel;
-import com.api.lores.entity.PatientModel;
-import com.api.lores.entity.TreatmentModel;
+import com.api.lores.model.DentistModel;
+import com.api.lores.model.PatientModel;
+import com.api.lores.model.TreatmentModel;
 import lombok.Data;
 
 import javax.validation.Valid;

@@ -1,9 +1,8 @@
 package com.api.lores.controller;
 
 import com.api.lores.dto.SpecialtyDto;
-import com.api.lores.entity.SpecialtyModel;
 import com.api.lores.exception.NotFoundException;
-import com.api.lores.service.SpecialtyService;
+import com.api.lores.service.specialty.SpecialtyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,27 +26,27 @@ public class SpecialtyController {
     }
 
     @GetMapping
-    public ResponseEntity<Object> getAllSpecialties() {
+    public ResponseEntity<Object> getAllSpecialties() throws NotFoundException {
         return specialtyService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getSingleSpecialty(@PathVariable UUID id) {
+    public SpecialtyDto getSingleSpecialty(@PathVariable UUID id) throws NotFoundException {
         return specialtyService.findById(id);
     }
 
     @DeleteMapping
-    public ResponseEntity<String> deleteAllSpecialties() {
+    public ResponseEntity<String> deleteAllSpecialties() throws NotFoundException {
         return specialtyService.deleteAll();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteSpecialty(@PathVariable UUID id) {
+    public ResponseEntity<Object> deleteSpecialty(@PathVariable UUID id) throws NotFoundException {
         return specialtyService.deleteById(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SpecialtyModel> updateSpecialty(@PathVariable UUID id, @RequestBody @Valid SpecialtyDto specialtyDto) {
+    public ResponseEntity<String> updateSpecialty(@PathVariable UUID id, @RequestBody @Valid SpecialtyDto specialtyDto) throws NotFoundException {
         return specialtyService.update(id, specialtyDto);
     }
 

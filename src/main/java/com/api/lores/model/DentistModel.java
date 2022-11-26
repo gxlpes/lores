@@ -1,6 +1,6 @@
-package com.api.lores.entity;
+package com.api.lores.model;
 
-import com.api.lores.entity.embedded.Person;
+import com.api.lores.model.embedded.Person;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -10,7 +10,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
