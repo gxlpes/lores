@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added JPA auth">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/config/swagger/SwaggerConfig.java" afterDir="false" />
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added Swagger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lores.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +150,8 @@
       <workItem from="1669398307189" duration="548000" />
       <workItem from="1669415355851" duration="15173000" />
       <workItem from="1669434463199" duration="406000" />
-      <workItem from="1669434897836" duration="459000" />
+      <workItem from="1669434897836" duration="581000" />
+      <workItem from="1669504329821" duration="181000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -325,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669431884934</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added Swagger">
+      <created>1669435466760</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1669435466760</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +366,8 @@
     <MESSAGE value="Added implementation of services" />
     <MESSAGE value="Added security" />
     <MESSAGE value="Added JPA auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JPA auth" />
+    <MESSAGE value="Added Swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Swagger" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
