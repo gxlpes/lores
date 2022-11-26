@@ -5,6 +5,7 @@ import com.api.lores.exception.NotFoundException;
 import com.api.lores.service.dentist.DentistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -36,6 +37,7 @@ public class DentistController {
         return dentistService.findById(id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping
     public ResponseEntity<String> deleteAllDentists() throws NotFoundException {
         return dentistService.deleteAll();

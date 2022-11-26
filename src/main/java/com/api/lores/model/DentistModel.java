@@ -23,8 +23,8 @@ public class DentistModel {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "dentist_id", updatable = false, nullable = false)
     @Type(type = "org.hibernate.type.UUIDCharType")
+    @Column(name = "dentist_id", updatable = false, nullable = false)
     private UUID id;
 
     @Column(nullable = false, unique = true, length = 10)
