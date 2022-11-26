@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added Swagger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Updated README">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +150,7 @@
       <workItem from="1669415355851" duration="15173000" />
       <workItem from="1669434463199" duration="406000" />
       <workItem from="1669434897836" duration="581000" />
-      <workItem from="1669504329821" duration="181000" />
+      <workItem from="1669504329821" duration="239000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -328,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669435466760</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Updated README">
+      <created>1669504543862</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1669504543862</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,12 +368,12 @@
     <MESSAGE value="Refactoring code again" />
     <MESSAGE value="Updates" />
     <MESSAGE value="Update README and methods" />
-    <MESSAGE value="Updated README" />
     <MESSAGE value="Added implementation of services" />
     <MESSAGE value="Added security" />
     <MESSAGE value="Added JPA auth" />
     <MESSAGE value="Added Swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Swagger" />
+    <MESSAGE value="Updated README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
