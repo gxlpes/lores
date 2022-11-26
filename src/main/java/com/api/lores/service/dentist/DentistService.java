@@ -10,7 +10,7 @@ public interface DentistService {
 
     DentistDto findById(UUID id) throws NotFoundException;
 
-    ResponseEntity<Object> findAll() throws NotFoundException;
+    ResponseEntity<Object> findAll();
 
     ResponseEntity<Object> save(DentistDto dto);
 

@@ -44,7 +44,7 @@ public class DentistServiceImpl implements DentistService {
     }
 
     @Override
-    public ResponseEntity<Object> findAll() throws NotFoundException {
+    public ResponseEntity<Object> findAll() {
         var dentistList = dentistRepository.findAll();
         if (dentistList.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No dentists were found");
