@@ -4,42 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Updated README">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/AppointmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/PatientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/SpecialtyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/TreatmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentServiceImpl.java" afterDir="false" />
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added implementation of services">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/config/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/config/security/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/enums/RoleName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/RoleModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/AppointmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/AppointmentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/DentistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/DentistDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/PatientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/PatientDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/AppointmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/AppointmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/DentistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/DentistModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/PatientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/PatientModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/SpecialtyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/SpecialtyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/TreatmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/TreatmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/embedded/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/embedded/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/entity/embedded/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/embedded/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/DentistMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/mapper/DentistMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/DentistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/DentistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/PatientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/PatientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/SpecialtyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/SpecialtyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/TreatmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/TreatmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/SpecialtyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/TreatmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lores.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lores.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/LoresApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +27,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -93,23 +70,24 @@
     <option name="flattenModules" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d0cc11c88477454c45f540a7ac62c46d&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/Guilherme Lopes/repos/lores/src/main/java/com/api/lores",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MTConfigurable",
+    "spring.configuration.checksum": "d0cc11c88477454c45f540a7ac62c46d"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="IntroduceConstantDialog.RECENTS_KEY">
       <recent name="com.api.lores.services.TreatmentService" />
@@ -179,7 +157,7 @@
       <workItem from="1669296726036" duration="1875000" />
       <workItem from="1669378757719" duration="23000" />
       <workItem from="1669398307189" duration="548000" />
-      <workItem from="1669415355851" duration="5831000" />
+      <workItem from="1669415355851" duration="8345000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -321,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669074914648</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added implementation of services">
+      <created>1669421532433</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1669421532433</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +341,8 @@
     <MESSAGE value="Updates" />
     <MESSAGE value="Update README and methods" />
     <MESSAGE value="Updated README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README" />
+    <MESSAGE value="Added implementation of services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added implementation of services" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
