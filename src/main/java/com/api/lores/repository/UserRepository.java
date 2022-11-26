@@ -1,4 +1,4 @@
-package com.api.parkingcontrolapi.repositories;
+package com.api.lores.repository;
 
 import com.api.lores.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;

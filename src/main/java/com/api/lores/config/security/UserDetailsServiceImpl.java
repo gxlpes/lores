@@ -1,7 +1,7 @@
-package com.api.parkingcontrolapi.configs.security;
+package com.api.lores.config.security;
 
 import com.api.lores.model.UserModel;
-import com.api.parkingcontrolapi.repositories.UserRepository;
+import com.api.lores.repository.UserRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

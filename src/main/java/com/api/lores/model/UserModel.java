@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserModel implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
 
