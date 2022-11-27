@@ -1,5 +1,5 @@
 # Lores Dental Clinic API
-Repository created to store the API for the Lores Dental Clinic. This project was created to practice and learn aspects of Spring and its tech related tools. <b>This version of the API was made to fulfill the tasks given by André (Assignment 2) and Cássio (Assignment 2).
+Repository created to store the API for the Lores Dental Clinic. This project was created to practice and learn aspects of Spring and its tech related tools. <b>This version of the API was made to fulfill the tasks given by André (Assignment 2) and Cássio (Assignment 2).</b>
 
 This API supports <code>GET</code>, <code>POST</code>, <code>DELETE</code> and <code>PUT</code> methods from HTTP Protocol. The API manages patients, dentists, appointments, treatments and specialties of a fictional clinic called Lores.
 
