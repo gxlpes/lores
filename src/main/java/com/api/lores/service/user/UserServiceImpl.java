@@ -1,0 +1,61 @@
+package com.api.lores.service.user;
+
+import com.api.lores.dto.UserDto;
+import com.api.lores.enums.RoleName;
+import com.api.lores.mapper.UserMapper;
+import com.api.lores.model.RoleModel;
+import com.api.lores.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    private final UserRepository userRepository;
+    private final UserMapper userMapper = UserMapper.INSTANCE;
+    private final PasswordEncoder passwordEncoder; //Importação do password encoder
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public String create(UserDto dto) { //Método responsável pela criação do nosso usuário no banco
+        var isSamePassword = dto.getPassword().equals(dto.getRetypePassword());
+
+        if (!isSamePassword) {
+            return "Senhas não são iguais.";
+        }
+
+        var exists = userRepository.findByUsername(dto.getUsername()).isPresent();
+        if (exists) {
+            return "Usuário já cadastrado.";
+        }
+
+        dto.setPassword(passwordEncoder.encode(dto.getPassword())); //Faz a criptografia da senha
+
+        var userToSave = userMapper.toModel(dto);
+        var roles = setUserRoles(2L, RoleName.ROLE_USER);
+        userToSave.setRoles(roles);
+
+        userRepository.save(userToSave);
+
+        return "Usuário cadastrado com sucesso.";
+    }
+
+    private List<RoleModel> setUserRoles(Long id, RoleName roleName) { //Método para adicionar a role em nosso usuário
+        var role = new RoleModel();
+        role.setRoleId(id);
+        role.setRoleName(roleName);
+        var roles = new ArrayList<RoleModel>();
+        roles.add(role);
+
+        return roles;
+    }
+}

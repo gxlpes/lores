@@ -1,30 +1,50 @@
 package com.api.lores.config.security;
 
+import com.api.lores.filter.TokenAuthenticationFilter;
+import com.api.lores.repository.UserRepository;
+import com.api.lores.service.token.TokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static com.api.lores.common.SecurityConstants.*;
+
+@EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true) //Habilita a definição por rota de quem pode acessar
 public class WebSecurityConfig {
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    private final TokenService tokenService;
+    private final UserRepository userRepository;
 
-        http
-                .httpBasic().and().authorizeRequests()
-                .anyRequest().authenticated().and().csrf().disable();
-
-        return http.build();
+    @Autowired
+    public WebSecurityConfig(TokenService tokenService, UserRepository userRepository) {
+        this.tokenService = tokenService;
+        this.userRepository = userRepository;
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll() //Permite todas as chamadas para POST de login
+                .antMatchers(SWAGGER_ENDPOINTS).permitAll() //Permite todas as chamadas para o Swagger
+                .antMatchers(HttpMethod.POST, REGISTER_ENDPOINT).permitAll() //Permite todas as chamadas para o POST de cadastro
+                .anyRequest().authenticated()//Define que todas as demais chamadas são autenticadas
+                .and().csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//"Desliga" a criação de sessões pelo Spring Security
+                .and()
+                .addFilterBefore( //Adiciona o filtro do Token antes de cada chamada
+                        new TokenAuthenticationFilter(tokenService, userRepository),
+                        UsernamePasswordAuthenticationFilter.class
+                );
+
+        return http.build();
     }
 }
