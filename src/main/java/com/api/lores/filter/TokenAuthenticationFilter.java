@@ -30,25 +30,25 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        String tokenFromHeader = getTokenFromHeader(request); //Busca o token na nossa requisição
-        boolean tokenValid = tokenService.isTokenValid(tokenFromHeader); //Verifica se o token é valido e autentica
+        String tokenFromHeader = getTokenFromHeader(request);
+        boolean tokenValid = tokenService.isTokenValid(tokenFromHeader);
         if (tokenValid) {
             this.authenticate(tokenFromHeader);
         }
 
-        filterChain.doFilter(request, response); //Da continuidade na requisição
+        filterChain.doFilter(request, response);
     }
 
     private String getTokenFromHeader(HttpServletRequest request) {
-        String token = request.getHeader(HEADER_STRING); //Busca o token
-        if (token == null || token.isEmpty() || !token.startsWith(TOKEN_PREFIX)) { //Verifica se ele existe
+        String token = request.getHeader(HEADER_STRING);
+        if (token == null || !token.startsWith(TOKEN_PREFIX)) {
             return null;
         }
 
-        return token.substring(TOKEN_PREFIX.length()); //Retorna apenas o token, sem o Bearer do inicio
+        return token.substring(TOKEN_PREFIX.length());
     }
 
-    private void authenticate(String tokenFromHeader) { //Valida se nosso usuário pode autenticar na aplicação
+    private void authenticate(String tokenFromHeader) {
         Long id = tokenService.getTokenId(tokenFromHeader);
 
         Optional<UserModel> optionalUserModel = userRepository.findById(id);
@@ -57,7 +57,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             UserModel user = optionalUserModel.get();
 
             var usernamePasswordAuthToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthToken); //Seta a autenticação do usuário atual
+            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthToken);
         }
     }
 }

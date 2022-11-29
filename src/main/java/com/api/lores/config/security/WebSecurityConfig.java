@@ -18,7 +18,7 @@ import static com.api.lores.common.SecurityConstants.*;
 
 @EnableWebSecurity
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true) //Habilita a definição por rota de quem pode acessar
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
     private final TokenService tokenService;
@@ -33,14 +33,14 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll() //Permite todas as chamadas para POST de login
-                .antMatchers(SWAGGER_ENDPOINTS).permitAll() //Permite todas as chamadas para o Swagger
-                .antMatchers(HttpMethod.POST, REGISTER_ENDPOINT).permitAll() //Permite todas as chamadas para o POST de cadastro
-                .anyRequest().authenticated()//Define que todas as demais chamadas são autenticadas
+                .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll()
+                .antMatchers(SWAGGER_ENDPOINTS).permitAll()
+                .antMatchers(HttpMethod.POST, REGISTER_ENDPOINT).permitAll()
+                .anyRequest().authenticated()
                 .and().csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)//"Desliga" a criação de sessões pelo Spring Security
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilterBefore( //Adiciona o filtro do Token antes de cada chamada
+                .addFilterBefore(
                         new TokenAuthenticationFilter(tokenService, userRepository),
                         UsernamePasswordAuthenticationFilter.class
                 );

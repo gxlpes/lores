@@ -2,16 +2,15 @@ package com.api.lores.common;
 
 public class SecurityConstants {
 
-    public static final String SECRET = "ADICIONE_SUA_SECRET_AQUI"; //Secret para o nosso token
-    public static final String ISSUER = "cursoatos"; //Quem gerou o token
-    public static final long EXPIRATION_TIME = 900_000; //15 minutos, o _ é utilizado para separação de milhares, como se fosse um ponto
-    public static final String TOKEN_PREFIX = "Bearer "; //Prefixo para o token
-    public static final String HEADER_STRING = "Authorization"; //Onde fica localizado nosso token
-    public static final String AUTH_ENDPOINT = "/api/v1/auth"; //Endpoint de autenticação
-    public static final String REGISTER_ENDPOINT = "/api/v1/users"; //Endpoint de cadastro de usuários
+    public static final String SECRET = "ADICIONE_SUA_SECRET_AQUI";
+    public static final String ISSUER = "lores";
+    public static final long EXPIRATION_TIME = 900_000; //15 minutos
+    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String HEADER_STRING = "Authorization";
+    public static final String AUTH_ENDPOINT = "/api/v1/auth";
+    public static final String REGISTER_ENDPOINT = "/api/v1/users";
 
-    public static String[] SWAGGER_ENDPOINTS = { //Endpoints do Swagger
-            // -- Swagger UI v2
+    public static String[] SWAGGER_ENDPOINTS = {
             "/v2/api-docs",
             "/swagger-resources",
             "/swagger-resources/**",
@@ -19,7 +18,7 @@ public class SecurityConstants {
             "/configuration/security",
             "/swagger-ui.html",
             "/webjars/**",
-            // -- Swagger UI v3 (OpenAPI)
+
             "/v3/api-docs/**",
             "/swagger-ui/**"
     };

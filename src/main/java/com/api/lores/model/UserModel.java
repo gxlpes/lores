@@ -1,8 +1,6 @@
 package com.api.lores.model;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,31 +9,26 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="tb_user")
+@Table(name = "tb_user")
 public class UserModel implements UserDetails, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Type(type = "org.hibernate.type.UUIDCharType")
-    private UUID userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
 
-    @Column(nullable = true, unique=true)
+    @Column(nullable = true, unique = true)
     private String username;
 
     @Column(nullable = true)
     private String password;
 
-    @ManyToMany
-    @JoinTable(name="TB_USERS_ROLES",
-            joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name="role_id"))
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "TB_USERS_ROLES", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<RoleModel> roles;
 
     @Override

@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 @Service
 @Transactional
-public class UserDetailsServiceImpl implements UserDetailsService { //Implementação do serviço responsável por carregar os dados do usuário
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     final UserRepository userRepository;
 
