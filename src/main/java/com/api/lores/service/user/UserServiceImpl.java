@@ -41,15 +41,22 @@ public class UserServiceImpl implements UserService {
         dto.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         var userToSave = userMapper.toModel(dto);
-        var roles = setUserRoles(2L, RoleName.ROLE_USER);
+
+        RoleName role;
+         if(dto.getRoleName().equals("1"))  {
+              role = RoleName.ROLE_ADMIN;
+        } else {
+              role = RoleName.ROLE_USER;
+        }
+
+        var roles = setUserRoles((dto.getRoleName()), role);
         userToSave.setRoles(roles);
 
         userRepository.save(userToSave);
-
         return "Usuário cadastrado com sucesso.";
     }
 
-    private List<RoleModel> setUserRoles(long id, RoleName roleName) {
+    private List<RoleModel> setUserRoles(String id, RoleName roleName) {
         var role = new RoleModel();
         role.setRoleId(id);
         role.setRoleName(roleName);

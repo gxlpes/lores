@@ -51,7 +51,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private void authenticate(String tokenFromHeader) {
         Long id = tokenService.getTokenId(tokenFromHeader);
 
-        Optional<UserModel> optionalUserModel = userRepository.findById(id);
+        Optional<UserModel> optionalUserModel = userRepository.findById(String.valueOf(id));
 
         if (optionalUserModel.isPresent()) {
             UserModel user = optionalUserModel.get();

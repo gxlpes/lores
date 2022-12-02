@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor //Classe responsável pela criação do usuário
+@AllArgsConstructor
 public class UserDto {
 
     @NotBlank
@@ -25,4 +25,7 @@ public class UserDto {
     @NotBlank
     @Size(max = 255)
     private String retypePassword;
+
+    @NotBlank
+    private String roleName;
 }

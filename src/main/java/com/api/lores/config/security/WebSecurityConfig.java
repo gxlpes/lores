@@ -32,7 +32,7 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll()
                 .antMatchers(SWAGGER_ENDPOINTS).permitAll()
                 .antMatchers(HttpMethod.POST, REGISTER_ENDPOINT).permitAll()
