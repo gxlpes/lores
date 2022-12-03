@@ -28,6 +28,11 @@ public class AuthServiceImpl implements AuthService {
         Authentication authentication = authenticationConfiguration.getAuthenticationManager().authenticate(usernamePasswordAuthenticationToken);
 
         String token = tokenService.generateToken(authentication);
-        return TokenDto.builder().token(token).build();
+
+        TokenDto tokenDto = new TokenDto();
+        tokenDto.setToken(token);
+        tokenDto.setRole(authentication.getAuthorities());
+
+        return tokenDto;
     }
 }
