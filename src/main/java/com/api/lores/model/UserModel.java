@@ -12,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "tb_user")
+@Table(name = "users")
 public class UserModel implements UserDetails, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -28,7 +28,7 @@ public class UserModel implements UserDetails, Serializable {
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "TB_USERS_ROLES", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<RoleModel> roles;
 
     @Override

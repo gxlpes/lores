@@ -4,6 +4,7 @@ import com.api.lores.dto.PatientDto;
 import com.api.lores.exception.NotFoundException;
 import com.api.lores.service.patient.PatientService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,6 +21,7 @@ public class PatientController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
     public ResponseEntity<Object> savePatient(@RequestBody @Valid PatientDto patientDto) {
         return patientService.save(patientDto);
     }

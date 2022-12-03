@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "tb_roles")
+@Table(name = "roles")
 public class RoleModel implements GrantedAuthority, Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

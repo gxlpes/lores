@@ -42,8 +42,8 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Long getTokenId(String token) {
+    public String getTokenId(String token) {
         Claims body = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
-        return Long.valueOf(body.getSubject());
+        return body.getSubject();
     }
 }
