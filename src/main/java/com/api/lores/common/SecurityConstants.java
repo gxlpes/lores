@@ -7,8 +7,8 @@ public class SecurityConstants {
     public static final long EXPIRATION_TIME = 900_000; //15 minutos
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
-    public static final String AUTH_ENDPOINT = "/api/v1/auth";
-    public static final String REGISTER_ENDPOINT = "/api/v1/users";
+    public static final String AUTH_ENDPOINT = "/api/auth";
+    public static final String REGISTER_ENDPOINT = "/api/users";
 
     public static String[] SWAGGER_ENDPOINTS = {
             "/v2/api-docs",

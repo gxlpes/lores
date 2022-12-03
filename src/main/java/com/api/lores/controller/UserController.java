@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import static com.api.lores.common.SecurityConstants.REGISTER_ENDPOINT;
+
 @RestController
 @CrossOrigin
-@RequestMapping("/api/v1/users")
+@RequestMapping(REGISTER_ENDPOINT)
 public class UserController {
 
     private final UserService userService;

@@ -43,10 +43,10 @@ public class UserServiceImpl implements UserService {
         var userToSave = userMapper.toModel(dto);
 
         RoleName role;
-         if(dto.getRoleName().equals("1"))  {
-              role = RoleName.ROLE_ADMIN;
+        if (dto.getRoleName().equals("1")) {
+            role = RoleName.ROLE_ADMIN;
         } else {
-              role = RoleName.ROLE_USER;
+            role = RoleName.ROLE_USER;
         }
 
         var roles = setUserRoles((dto.getRoleName()), role);
