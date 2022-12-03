@@ -3,6 +3,7 @@ package com.api.lores.filter;
 import com.api.lores.model.UserModel;
 import com.api.lores.repository.UserRepository;
 import com.api.lores.service.token.TokenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -22,6 +23,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private final TokenService tokenService;
     private final UserRepository userRepository;
 
+    @Autowired
     public TokenAuthenticationFilter(TokenService tokenService, UserRepository userRepository) {
         this.tokenService = tokenService;
         this.userRepository = userRepository;
@@ -30,27 +32,26 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        String tokenFromHeader = getTokenFromHeader(request);
-        boolean tokenValid = tokenService.isTokenValid(tokenFromHeader);
+        String tokenFromHeader = getTokenFromHeader(request); //Busca o token na nossa requisição
+        boolean tokenValid = tokenService.isTokenValid(tokenFromHeader); //Verifica se o token é valido e autentica
         if (tokenValid) {
             this.authenticate(tokenFromHeader);
         }
 
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request, response); //Da continuidade na requisição
     }
 
     private String getTokenFromHeader(HttpServletRequest request) {
-        String token = request.getHeader(HEADER_STRING);
-        if (token == null || !token.startsWith(TOKEN_PREFIX)) {
+        String token = request.getHeader(HEADER_STRING); //Busca o token
+        if (token == null || !token.startsWith(TOKEN_PREFIX)) { //Verifica se ele existe
             return null;
         }
 
-        return token.substring(TOKEN_PREFIX.length());
+        return token.substring(TOKEN_PREFIX.length()); //Retorna apenas o token, sem o Bearer do inicio
     }
 
-    private void authenticate(String tokenFromHeader) {
-        String id = tokenService.getTokenId(tokenFromHeader);
-        logger.info(id);
+    private void authenticate(String tokenFromHeader) { //Valida se nosso usuário pode autenticar na aplicação
+        Long id = tokenService.getTokenId(tokenFromHeader);
 
         Optional<UserModel> optionalUserModel = userRepository.findById(id);
 
@@ -58,7 +59,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             UserModel user = optionalUserModel.get();
 
             var usernamePasswordAuthToken = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthToken);
+            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthToken); //Seta a autenticação do usuário atual
         }
     }
 }

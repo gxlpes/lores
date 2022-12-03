@@ -8,5 +8,5 @@ public interface TokenService {
 
     boolean isTokenValid(String token);
 
-    String getTokenId(String token);
+    Long getTokenId(String token);
 }

@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Changes to USER ROLE and ADMIN ROLE">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Running code with auth and register only">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/filter/TokenAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/filter/TokenAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/model/RoleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/RoleModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/token/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/token/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/token/TokenServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/token/TokenServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/user/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +167,7 @@
       <workItem from="1669978702689" duration="3658000" />
       <workItem from="1670025616689" duration="167000" />
       <workItem from="1670027167266" duration="282000" />
-      <workItem from="1670077328820" duration="2111000" />
+      <workItem from="1670077328820" duration="3307000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -371,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669983064217</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Running code with auth and register only">
+      <created>1670079601463</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1670079601463</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +421,8 @@
     <MESSAGE value="Added JWT options" />
     <MESSAGE value="Cleanup and JWT" />
     <MESSAGE value="Changes to USER ROLE and ADMIN ROLE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to USER ROLE and ADMIN ROLE" />
+    <MESSAGE value="Running code with auth and register only" />
+    <option name="LAST_COMMIT_MESSAGE" value="Running code with auth and register only" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

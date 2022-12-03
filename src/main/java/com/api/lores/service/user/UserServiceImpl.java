@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
         return "Usuário cadastrado com sucesso.";
     }
 
-    private List<RoleModel> setUserRoles(String id, RoleName roleName) {
+    private List<RoleModel> setUserRoles(long id, RoleName roleName) {
         var role = new RoleModel();
         role.setRoleId(id);
         role.setRoleName(roleName);
