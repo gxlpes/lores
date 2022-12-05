@@ -27,5 +27,5 @@ public class UserDto {
     private String retypePassword;
 
     @NotBlank
-    private Long roleName;
+    private String roleName;
 }

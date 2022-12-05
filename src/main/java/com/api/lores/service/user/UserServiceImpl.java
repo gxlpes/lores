@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
             role = RoleName.ROLE_USER;
         }
 
-        var roles = setUserRoles((dto.getRoleName()), role);
+        var roles = setUserRoles((Long.parseLong(dto.getRoleName())), role);
         userToSave.setRoles(roles);
 
         userRepository.save(userToSave);

@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@CrossOrigin
+@CrossOrigin(
+        allowCredentials = "true",
+        origins = "http://localhost:3000",
+        allowedHeaders = "*")
 @RequestMapping("/dentists")
 @RestController
 public class DentistController {
@@ -28,6 +31,7 @@ public class DentistController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> getAllDentists() throws NotFoundException {
         return dentistService.findAll();
     }

@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@CrossOrigin
+@CrossOrigin(
+        allowCredentials = "true",
+        origins = "http://localhost:3000",
+        allowedHeaders = "*")
 @RestController
 @RequestMapping("/patients")
 public class PatientController {
@@ -21,12 +24,13 @@ public class PatientController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ROLE_USER','ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> savePatient(@RequestBody @Valid PatientDto patientDto) {
         return patientService.save(patientDto);
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> getAllPatients() throws NotFoundException {
         return patientService.findAll();
     }
