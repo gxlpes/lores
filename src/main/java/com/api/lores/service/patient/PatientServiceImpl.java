@@ -47,7 +47,7 @@ public class PatientServiceImpl implements PatientService {
     public ResponseEntity<Object> findAll() throws NotFoundException {
         var patientList = patientRepository.findAll();
         if (patientList.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No patients were found");
+            return ResponseEntity.status(HttpStatus.OK).body("No patients were found");
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(patientList);
         }

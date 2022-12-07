@@ -4,12 +4,16 @@ import com.api.lores.dto.SpecialtyDto;
 import com.api.lores.exception.NotFoundException;
 import com.api.lores.service.specialty.SpecialtyService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.UUID;
 
-@CrossOrigin
+@CrossOrigin(
+        allowCredentials = "true",
+        origins = "http://localhost:3000",
+        allowedHeaders = "*")
 @RestController
 @RequestMapping("/specialties")
 public class SpecialtyController {
@@ -21,11 +25,13 @@ public class SpecialtyController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> saveSpecialty(@RequestBody @Valid SpecialtyDto specialtyDto) {
         return specialtyService.save(specialtyDto);
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> getAllSpecialties() throws NotFoundException {
         return specialtyService.findAll();
     }

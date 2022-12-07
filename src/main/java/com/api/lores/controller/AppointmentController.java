@@ -5,6 +5,7 @@ import com.api.lores.exception.NotFoundException;
 import com.api.lores.model.AppointmentModel;
 import com.api.lores.service.appointment.AppointmentService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -12,7 +13,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@CrossOrigin
+@CrossOrigin(
+        allowCredentials = "true",
+        origins = "http://localhost:3000",
+        allowedHeaders = "*")
 @RestController
 @RequestMapping("/appointments")
 public class AppointmentController {
@@ -24,6 +28,7 @@ public class AppointmentController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     public ResponseEntity<Object> saveAppointment(@RequestBody @Valid AppointmentDto appointmentDto) {
         return appointmentService.save(appointmentDto);
     }

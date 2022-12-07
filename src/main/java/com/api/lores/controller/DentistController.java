@@ -14,8 +14,8 @@ import java.util.UUID;
         allowCredentials = "true",
         origins = "http://localhost:3000",
         allowedHeaders = "*")
-@RequestMapping("/dentists")
 @RestController
+@RequestMapping("/dentists")
 public class DentistController {
 
     private final DentistService dentistService;

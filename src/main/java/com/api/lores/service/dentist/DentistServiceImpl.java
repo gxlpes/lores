@@ -47,7 +47,7 @@ public class DentistServiceImpl implements DentistService {
     public ResponseEntity<Object> findAll() {
         var dentistList = dentistRepository.findAll();
         if (dentistList.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No dentists were found");
+            return ResponseEntity.status(HttpStatus.OK).body("No dentists were found");
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(dentistList);
         }

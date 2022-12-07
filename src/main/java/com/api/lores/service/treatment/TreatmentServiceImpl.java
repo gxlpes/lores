@@ -50,7 +50,7 @@ public class TreatmentServiceImpl implements TreatmentService {
     public ResponseEntity<Object> findAll() throws NotFoundException {
         var treatmentList = treatmentRepository.findAll();
         if (treatmentList.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No treatments were found");
+            return ResponseEntity.status(HttpStatus.OK).body("No treatments were found");
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(treatmentList);
         }

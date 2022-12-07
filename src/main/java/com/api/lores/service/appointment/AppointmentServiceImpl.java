@@ -57,7 +57,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     public ResponseEntity<Object> findAll() throws NotFoundException {
         var appointmentList = appointmentRepository.findAll();
         if (appointmentList.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No appointments were found");
+            return ResponseEntity.status(HttpStatus.OK).body("No appointments were found");
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(appointmentList);
         }

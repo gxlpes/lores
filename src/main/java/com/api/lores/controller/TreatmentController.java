@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.UUID;
 
-@CrossOrigin
+@CrossOrigin(
+        allowCredentials = "true",
+        origins = "http://localhost:3000",
+        allowedHeaders = "*")
 @RestController
 @RequestMapping("/treatments")
 public class TreatmentController {

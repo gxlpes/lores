@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Returning authrotiy">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added CORS and ORIGIN">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/DentistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/DentistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +172,11 @@
       <workItem from="1670027167266" duration="282000" />
       <workItem from="1670077328820" duration="9357000" />
       <workItem from="1670160312047" duration="2463000" />
-      <workItem from="1670171747128" duration="2690000" />
+      <workItem from="1670171747128" duration="2900000" />
+      <workItem from="1670246200192" duration="19000" />
+      <workItem from="1670282270502" duration="2910000" />
+      <workItem from="1670365391209" duration="2701000" />
+      <workItem from="1670408966693" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -392,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670094401198</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added CORS and ORIGIN">
+      <created>1670201981412</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670201981412</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Specialties" />
     <MESSAGE value="Added treatments integrated with specialties" />
     <MESSAGE value="Relationship with specialties" />
     <MESSAGE value="Delete with relationship" />
@@ -435,7 +451,8 @@
     <MESSAGE value="Running code with auth and register only" />
     <MESSAGE value="Added correct token implementation" />
     <MESSAGE value="Returning authrotiy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Returning authrotiy" />
+    <MESSAGE value="Added CORS and ORIGIN" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added CORS and ORIGIN" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
