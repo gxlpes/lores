@@ -4,7 +4,7 @@ public class SecurityConstants {
 
     public static final String SECRET = "ADICIONE_SUA_SECRET_AQUI";
     public static final String ISSUER = "lores";
-    public static final long EXPIRATION_TIME = 900_000; //15 minutos
+    public static final long EXPIRATION_TIME = 3_600_000; //60 minutos
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
     public static final String AUTH_ENDPOINT = "/api/auth";

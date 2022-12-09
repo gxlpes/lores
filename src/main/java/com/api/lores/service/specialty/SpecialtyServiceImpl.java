@@ -58,7 +58,7 @@ public class SpecialtyServiceImpl implements SpecialtyService {
     public ResponseEntity<Object> findAll() throws NotFoundException {
         var specialtyList = specialtyRepository.findAll();
         if (specialtyList.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.OK).body("No specialtys were found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No specialties were found");
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(specialtyList);
         }

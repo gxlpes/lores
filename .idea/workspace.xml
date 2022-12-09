@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Added CORS and ORIGIN">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Updated struct">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/AppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/DentistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/DentistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/SpecialtyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/common/SecurityConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/common/SecurityConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/controller/TreatmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/appointment/AppointmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/dentist/DentistServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/patient/PatientServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/specialty/SpecialtyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/service/treatment/TreatmentServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +169,9 @@
       <workItem from="1670246200192" duration="19000" />
       <workItem from="1670282270502" duration="2910000" />
       <workItem from="1670365391209" duration="2701000" />
-      <workItem from="1670408966693" duration="48000" />
+      <workItem from="1670408966693" duration="1339000" />
+      <workItem from="1670449406929" duration="2356000" />
+      <workItem from="1670537101720" duration="7446000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -409,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670201981412</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Updated struct">
+      <created>1670409039355</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670409039355</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +429,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added treatments integrated with specialties" />
     <MESSAGE value="Relationship with specialties" />
     <MESSAGE value="Delete with relationship" />
     <MESSAGE value="Everything working" />
@@ -452,7 +453,8 @@
     <MESSAGE value="Added correct token implementation" />
     <MESSAGE value="Returning authrotiy" />
     <MESSAGE value="Added CORS and ORIGIN" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added CORS and ORIGIN" />
+    <MESSAGE value="Updated struct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated struct" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

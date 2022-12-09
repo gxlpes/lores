@@ -1,5 +1,6 @@
 package com.api.lores.controller;
 
+import com.api.lores.dto.DentistDto;
 import com.api.lores.dto.TreatmentDto;
 import com.api.lores.exception.NotFoundException;
 import com.api.lores.service.specialty.SpecialtyService;
@@ -50,6 +51,11 @@ public class TreatmentController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteTreatment(@PathVariable UUID id) throws NotFoundException {
         return treatmentService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateTreatment(@PathVariable UUID id, @RequestBody @Valid TreatmentDto treatmentDto) throws NotFoundException {
+        return treatmentService.update(id, treatmentDto);
     }
 
     @PutMapping("/{treatmentId}/specialty/{specialtyId}")
