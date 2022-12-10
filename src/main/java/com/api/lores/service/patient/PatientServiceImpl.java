@@ -44,6 +44,11 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public PatientModel findByPersonCpfNumber(String cpf) throws NotFoundException {
+        return patientRepository.findByPersonCpfNumber(cpf).orElseThrow(() -> new NotFoundException());
+    }
+
+    @Override
     public ResponseEntity<Object> findAll() throws NotFoundException {
         var patientList = patientRepository.findAll();
         if (patientList.isEmpty()) {

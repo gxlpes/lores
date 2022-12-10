@@ -1,11 +1,8 @@
 package com.api.lores.model;
 
 import com.api.lores.model.embedded.Person;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.*;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -14,7 +11,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "dentists")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -33,9 +33,8 @@ public class DentistModel {
     @Embedded
     private Person person;
 
+    @OneToMany(mappedBy = "dentist", orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference
-    @OneToMany(mappedBy = "dentist", orphanRemoval = true, cascade = CascadeType.PERSIST)
-    @ToString.Exclude
     private Set<SpecialtyModel> specialties = new HashSet<>();
 
 }

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
@@ -33,8 +34,8 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().authorizeRequests()
-                .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll()
                 .antMatchers(SWAGGER_ENDPOINTS).permitAll()
+                .antMatchers(HttpMethod.POST, AUTH_ENDPOINT).permitAll()
                 .antMatchers(HttpMethod.POST, REGISTER_ENDPOINT).permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
@@ -47,4 +48,5 @@ public class WebSecurityConfig {
 
         return http.build();
     }
+
 }

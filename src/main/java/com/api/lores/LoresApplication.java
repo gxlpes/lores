@@ -8,6 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static com.api.lores.log.Logging.LOGGER;
 
 @SpringBootApplication
+@EnableSwagger2
 public class LoresApplication {
 
     public static void main(String[] args) {

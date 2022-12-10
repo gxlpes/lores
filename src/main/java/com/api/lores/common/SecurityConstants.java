@@ -18,7 +18,8 @@ public class SecurityConstants {
             "/configuration/security",
             "/swagger-ui.html",
             "/webjars/**",
-
+            "/swagger-ui/**",
+            "/configuration/**",
             "/v3/api-docs/**",
             "/swagger-ui/**"
     };

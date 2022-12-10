@@ -10,6 +10,8 @@ public interface DentistService {
 
     DentistDto findById(UUID id) throws NotFoundException;
 
+    DentistModel findByCro(String cro) throws NotFoundException;
+
     ResponseEntity<Object> findAll();
 
     ResponseEntity<Object> save(DentistDto dto);
@@ -21,4 +23,5 @@ public interface DentistService {
     ResponseEntity<Object> deleteById(UUID id) throws NotFoundException;
 
     DentistModel findOrFail(UUID id);
+
 }

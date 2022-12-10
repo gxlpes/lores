@@ -2,6 +2,7 @@ package com.api.lores.controller;
 
 import com.api.lores.dto.DentistDto;
 import com.api.lores.exception.NotFoundException;
+import com.api.lores.model.DentistModel;
 import com.api.lores.service.dentist.DentistService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,6 +41,12 @@ public class DentistController {
     public DentistDto getSingleDentist(@PathVariable UUID id) throws NotFoundException {
         return dentistService.findById(id);
     }
+
+    @GetMapping("/cro/{cro}")
+    public DentistModel getDentistByCro(@PathVariable String cro) throws NotFoundException {
+        return dentistService.findByCro(cro);
+    }
+
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping

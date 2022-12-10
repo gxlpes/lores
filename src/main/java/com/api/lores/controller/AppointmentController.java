@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @CrossOrigin(
         allowCredentials = "true",
-        origins = "http://localhost:3000",
+        origins = {"http://localhost:3000", "http://localhost:8080"},
         allowedHeaders = "*")
 @RestController
 @RequestMapping("/appointments")

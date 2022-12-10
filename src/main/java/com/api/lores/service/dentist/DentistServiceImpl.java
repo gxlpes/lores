@@ -42,6 +42,11 @@ public class DentistServiceImpl implements DentistService {
         var dentist = dentistRepository.findById(id).orElseThrow(() -> new NotFoundException());
         return dentistMapper.toDto(dentist);
     }
+    @Override
+    public DentistModel findByCro(String cro) throws NotFoundException {
+        return  dentistRepository.findByCroNumber(cro).orElseThrow(() -> new NotFoundException());
+    }
+
 
     @Override
     public ResponseEntity<Object> findAll() {
@@ -85,5 +90,7 @@ public class DentistServiceImpl implements DentistService {
             throw new EntityNotFound(String.format("Entity does not exist with the %s", id));
         });
     }
+
+
 
 }

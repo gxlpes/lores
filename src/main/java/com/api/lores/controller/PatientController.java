@@ -2,6 +2,7 @@ package com.api.lores.controller;
 
 import com.api.lores.dto.PatientDto;
 import com.api.lores.exception.NotFoundException;
+import com.api.lores.model.PatientModel;
 import com.api.lores.service.patient.PatientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,7 +13,7 @@ import java.util.UUID;
 
 @CrossOrigin(
         allowCredentials = "true",
-        origins = "http://localhost:3000",
+        origins =  {"http://localhost:3000", "http://someserver:8080"},
         allowedHeaders = "*")
 @RestController
 @RequestMapping("/patients")
@@ -38,6 +39,11 @@ public class PatientController {
     @GetMapping("/{id}")
     public PatientDto getSinglePatient(@PathVariable UUID id) throws NotFoundException {
         return patientService.findById(id);
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public PatientModel getSingleByCpf(@PathVariable String cpf) throws NotFoundException {
+        return patientService.findByPersonCpfNumber(cpf);
     }
 
     @DeleteMapping

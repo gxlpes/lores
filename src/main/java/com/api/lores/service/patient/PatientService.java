@@ -11,6 +11,8 @@ public interface PatientService {
 
     PatientDto findById(UUID id) throws NotFoundException;
 
+    PatientModel findByPersonCpfNumber(String cpf) throws NotFoundException;
+
     ResponseEntity<Object> findAll() throws NotFoundException;
 
     ResponseEntity<Object> save(PatientDto dto);
@@ -22,4 +24,5 @@ public interface PatientService {
     ResponseEntity<Object> deleteById(UUID id) throws NotFoundException;
 
     PatientModel findOrFail(UUID id);
+
 }
