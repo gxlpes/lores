@@ -27,7 +27,7 @@ public class DentistModel {
     @Column(name = "dentist_id", updatable = false, nullable = false)
     private UUID id;
 
-    @Column(nullable = false, unique = true, length = 10)
+    @Column(length = 10)
     private String croNumber;
 
     @Embedded

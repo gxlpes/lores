@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Updates to the API">
+    <list default="true" id="fa26a91d-6bee-45bb-8da3-4ccc9c527dba" name="Changes" comment="Swagger with JWT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/config/swagger/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/config/swagger/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/DentistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/dto/DentistDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/lores/model/DentistModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/api/lores/model/DentistModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,12 @@
       <workItem from="1670537101720" duration="12044000" />
       <workItem from="1670599641408" duration="5240000" />
       <workItem from="1670609999169" duration="7178000" />
-      <workItem from="1670637150004" duration="3040000" />
+      <workItem from="1670637150004" duration="4222000" />
+      <workItem from="1670643908727" duration="330000" />
+      <workItem from="1670675756231" duration="684000" />
+      <workItem from="1670695101943" duration="3857000" />
+      <workItem from="1670929562381" duration="617000" />
+      <workItem from="1670979200811" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="New project Lores">
       <created>1668682512191</created>
@@ -413,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670633668579</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Swagger with JWT">
+      <created>1670643082193</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1670643082193</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -431,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Everything working" />
     <MESSAGE value="Trying generics" />
     <MESSAGE value="Logging experiments" />
     <MESSAGE value="Experiments with impl" />
@@ -456,7 +468,8 @@
     <MESSAGE value="Updated struct" />
     <MESSAGE value="Updated TreatmentController" />
     <MESSAGE value="Updates to the API" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates to the API" />
+    <MESSAGE value="Swagger with JWT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Swagger with JWT" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -10,7 +10,6 @@ import javax.validation.constraints.Size;
 @Data
 public class DentistDto {
 
-    @NotBlank
     @Size(max = 11)
     private String croNumber;
 
