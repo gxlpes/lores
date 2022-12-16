@@ -15,6 +15,7 @@ This API supports <code>GET</code>, <code>POST</code>, <code>DELETE</code> and <
 
 <b>Links:</b>
 <ul>
+  <li><a href="https://drive.google.com/file/d/1dhDSyK5W72HLbJGhAsxQ3gSPgVpraLtO/view">MySQL Diagram</a></li>
 <li>
 <a href="https://github.com/gxlpes/lores-webapp">Lores WebApp Repository</a></li>
 <li>
